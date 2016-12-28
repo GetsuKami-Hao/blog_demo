@@ -7,10 +7,18 @@ class SessionsController < ApplicationController
 		@user = User.find_by(email: params[:session][:email].downcase)
 
 		if @user && @user.authenticate(params[:session][:password])
-			render html: "登陆成功"
+			log_in @user
+			
+			redirect_to @user
 		else
-			render html: "登陆失败"
+			flash.now[:danger] = "帐号或密码错误"
+			render 'new'
 		end
+	end
+
+	def destory
+		log_out
+		redirect_to login_url
 	end
 
 end
