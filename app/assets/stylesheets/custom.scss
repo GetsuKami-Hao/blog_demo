@@ -1,0 +1,64 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+/* font */
+
+.ad-title{
+	font-family: Georgia, serif;
+	font-size: 80px;
+  color: #B038;
+  font-weight: bold;
+}
+
+.ad-subtitle{
+  font-size: 20px;
+  color: #B038;
+}
+
+/* form */
+.form_row{
+  margin-top: 100px;
+  overflow-y: auto;
+  p{
+    margin-left: 350px;
+    margin-top: 20px;
+  }
+  label{
+    margin-left: 280px;
+    margin-top: 0px;
+  }
+  background-color: transparent;
+}
+
+.checkbox{
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span{
+    margin-left: 30px;
+    font-weight: normal;
+  }
+}
+
+input, .form-control{
+  width: 60%;
+  margin-left: 280px;
+  margin-top: 10px;
+}
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 30%;
+  margin-left: 350px;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
