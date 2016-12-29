@@ -8,6 +8,20 @@
   box-sizing:         border-box;
 }
 
+
+/* button */
+
+.btn-group{
+  margin-left: 375px;
+  margin-top: 25px;
+}
+
+/* picture */
+
+.user_info{
+  margin-top: 60px;
+}
+
 /* font */
 
 .user_attribute{
@@ -15,7 +29,7 @@
     margin-left:20px;
 
   }
-  color: cccccc;
+  color: #cccccc;
   text-align: center;
 }
 
@@ -81,3 +95,6 @@ input, textarea, select, .uneditable-input {
 input {
   height: auto !important;
 }
+
+
+/* header */
