@@ -10,6 +10,15 @@
 
 /* font */
 
+.user_attribute{
+  a{
+    margin-left:20px;
+
+  }
+  color: cccccc;
+  text-align: center;
+}
+
 .user_setting{
   font-family: Georgia, serif;
   font-size: 50px;
@@ -31,6 +40,8 @@
 }
 
 /* form */
+
+
 .form_row{
   margin-top: 100px;
   overflow-y: auto;

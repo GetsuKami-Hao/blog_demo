@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'photos/create'
+
 	root 'static_pages#home'
 
   get 'users/show'
@@ -14,6 +16,8 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
 
   delete '/logout', to: 'sessions#destory'
+
+  patch '/update', to: 'users#update'
 
   resources :users
 end

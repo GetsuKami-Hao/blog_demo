@@ -8,7 +8,11 @@ class User < ApplicationRecord
 	before_save :downcase_email
 
 	has_secure_password
-	validates :password, presence: true, length: { in: 6..20 } , allow_nil: true									
+	validates :password, presence: true, length: { in: 6..20 } , allow_nil: true	
+
+	has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, 
+																	default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/								
 
 	private
 		def downcase_email

@@ -1,9 +1,28 @@
 <% provide(:title, @user.name) %>
 
 
+<script>
 
+</script>
 <div class="user_setting">
 	<p class="glyphicon glyphicon-send" data-toggle="dropdown">  设置</p>
 </div>
-<p><%= @user.name %></p>
-<p><%= @user.email %></p>
+
+<div class = "user_attribute">
+	<a href="#"">基础设置</a>
+	<a href="#">个人资料</a>
+	<a href="#">社交帐号</a>
+	<a href="#">其他</a>
+	<a href="#">帐号管理</a>
+</div>
+
+	
+<%= image_tag @user.avatar.url(:thumb), class: "img-circle"%>
+
+<%= form_for(@user,url: update_path, html: { multipart: true }) do |form| %>
+	<fieldset disabled>
+		<%= form.email_field :email, id: "disabledEmailInput" %>
+	</fieldset>
+  <%= form.file_field :avatar ,placeholder: "上传头像"%>
+  <%= form.submit "确定", class: "btn btn-default" %>
+<% end %>
