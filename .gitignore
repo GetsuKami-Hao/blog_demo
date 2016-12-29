@@ -17,3 +17,7 @@
 .byebug_history
 .tags
 .tags_sorted_by_file
+
+#Ignore photo
+
+/public/system/users/avatars/*
