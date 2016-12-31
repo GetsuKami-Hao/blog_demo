@@ -1,21 +1,24 @@
 <% provide(:title, @user.name) %>
 
 
+
 <div class="user_setting">
 	<p class="glyphicon glyphicon-send" data-toggle="dropdown">  设置</p>
 </div>
 
-<div class = "btn-group">
-	<%= content_tag :button , "基础设置" ,class: "btn btn-default", id: "clickMe", onclick: "alert('clicked');" %>
+<div class = "btn-group", id="btnGroup">
+	<%= content_tag :button , "基础设置" ,class: "btn btn-default", 
+																					onclick: "changeResult('account_info', 'user_info');" %>
 	<%= content_tag :button , "个人资料" ,class: "btn btn-default" %>
 	<%= content_tag :button , "社交帐号" ,class: "btn btn-default" %>
-	<%= content_tag :button , "账号管理" ,class: "btn btn-default" %>
+	<%= content_tag :button , "账号管理" ,class: "btn btn-default" , 
+																									onclick: "changeResult('user_info','account_info')" %>
 	<%= content_tag :button , "其他" ,class: "btn btn-default" %>
 </div>
 
 	
 
-<div class = "user_info" >
+<div class = "user_info", id = "user_info" >
 	<%= image_tag @user.avatar.url(:thumb), class: "img-circle"%>
 	<%= form_for(@user,url: update_path, html: { multipart: true }) do |form| %>
 		<%= form.file_field :avatar ,placeholder: "上传头像", class: "update_photo" %>
@@ -30,4 +33,8 @@
   	<%= form.submit "确定", class: "btn btn-default" %>
 	<% end %>
 
+</div>
+
+<div id = "account_info" display = "none" >
+	<%= content_tag :button, "删除帐号" %>
 </div>
