@@ -1,5 +1,6 @@
 module SessionsHelper
 
+	#登陆当前用户
 	def log_in(user)
 		session[:user_id] = user.id
 	end
@@ -10,11 +11,12 @@ module SessionsHelper
 	end
 
 	
-
+	# 判断当前用户是否登陆
 	def logged_in?
 		!current_user.nil?
 	end
 
+	#用户退出
 	def log_out
 		session.delete(:user_id)
 		@current_user = nil
