@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'articles/new'
+
+  get 'articles/create'
+
+  get 'articles/show'
+
   get 'photos/create'
 
 	root 'static_pages#home'
