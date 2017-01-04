@@ -25,5 +25,8 @@ Rails.application.routes.draw do
 
   patch '/update', to: 'users#update'
 
+  post '/create_article', to: "articles#create"
+
   resources :users
+  resources :articles
 end

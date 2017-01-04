@@ -1,0 +1,12 @@
+<% provide(:title, 'All articles') %>                                                                                                                
+<h1>All articles</h1>
+<%= will_paginate %>
+
+<ul class="articles">
+	<% @articles.each do |article| %>
+		<li>title: <%= article.title %></li>
+		<li>content: <%= article.content %></li>
+	<% end %>
+<ul>
+
+<%= will_paginate %>
