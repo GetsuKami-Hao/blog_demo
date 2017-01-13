@@ -11,11 +11,11 @@ class UsersController < ApplicationController
   	@user = User.new(create_user_params)
 
   	if @user.save
+      flash[:success] = "注册成功"
   		redirect_to @user
-  		flash[:success] = "注册成功"
-  		
   	else
-  		render html: "注册失败"
+      flash.now[:danger] = "注册失败"
+  		render 'new'
   	end
  
   end

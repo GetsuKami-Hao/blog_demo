@@ -38,6 +38,8 @@ gem 'bootstrap-will_paginate'
 gem 'bootstrap-sass' , '~> 3.3.7'
 gem "paperclip", "~> 5.1.0"
 
+gem 'rails-controller-testing'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

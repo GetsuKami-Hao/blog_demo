@@ -18,6 +18,14 @@ class User < ApplicationRecord
 																	default_url: "/images/:style/missing.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/								
 
+ 	class << self
+ 		def digest(string)
+ 			cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+    	BCrypt::Password.create(string, cost: cost)
+ 		end
+ 	end
+
 	private
 		#　邮件存入数据库之前小写。
 		def downcase_email
