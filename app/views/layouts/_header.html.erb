@@ -29,20 +29,23 @@
           </ul>
         </li>
       </ul>
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">查找</button>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-      <% if !logged_in? %>
-        <li><%= link_to "注册",  signup_path %></li>
-        <li><%= link_to "登陆",  login_path %></li>
-      <% else %>
-       
-        <li class="dropdown">
-          <a href='' class="glyphicon glyphicon-user dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+    
+      <div class="find_user">    
+        <%= form_for(@user = User.new, url: find_show_user_path) do |form| %>
+          <%= form.text_field :name, class: "form-control" ,placeholder: "Search" %>
+          <%= form.submit "查找", class: "btn btn-default" %>
+        <% end %>
+      </div>
+    
+      <div class="user_status"> 
+        <ul class="nav navbar-nav navbar-right">
+        <% if !logged_in? %>
+         <li><%= link_to "注册",  signup_path %></li>
+         <li><%= link_to "登陆",  login_path %></li>
+        </ul>
+        <% else %>
+          <li class="dropdown">
+            <a href='' class="glyphicon glyphicon-user dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><%= link_to "my articles", articles_path %></li>
             <li><%= link_to "new article", articles_new_path %></li>
@@ -53,6 +56,7 @@
           </ul>
         </li>
       <% end %>
-    </div><!-- /.navbar-collapse -->
+      </div>
+    </div>  <!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

@@ -9,6 +9,25 @@
 }
 
 
+/* header */
+.find_user{
+  .form-control{
+    width: 10em;
+    margin-top: 10px;
+  }
+  .btn-default{
+    margin-left: 33em;
+    margin-top: -85px;
+    width: 10em;
+  }
+}
+
+.user_status{
+  .dropdown-toggle{
+    margin-top: -85px;
+  }
+}
+
 /* articles */
 
 .microposts {

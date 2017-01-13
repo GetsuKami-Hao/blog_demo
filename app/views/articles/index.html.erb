@@ -19,7 +19,8 @@
       <ol class="microposts">
         <ul class="articles">
 					<% @articles.each do |article| %>
-						<li><%= link_to article.title, article %><br \>
+						<li><%= link_to article.title, article %>
+            <%= article.updated_at.strftime("%H:%M:%S")   %><br \>
 						<%= article.content %></li>
 					<% end %>
 				<ul>

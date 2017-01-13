@@ -1,0 +1,2 @@
+module FindUserHelper
+end
