@@ -9,7 +9,8 @@ class ArticlesController < ApplicationController
   		flash.now[:success] = "发布成功。"
   		redirect_to @article
   	else
-  		render html: "失败"
+      flash.now[:danger] = "发布失败。"
+  		render 'new'
   	end
   end
 
@@ -20,7 +21,7 @@ class ArticlesController < ApplicationController
   def destroy
   	if Article.find(params[:id]).destroy
   		flash[:success] = "deleted success."
-  		render html: "ok"
+  		redirect_to articles_url
   	end
   end
 

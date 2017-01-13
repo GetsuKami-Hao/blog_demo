@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get 'articles/new'
 
-  get 'articles/create'
+ 
 
   get 'articles/show'
 
@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   patch '/update', to: 'users#update'
 
   post '/create_article', to: "articles#create"
+  get '/create_article', to: 'articles#new'
   
   post '/find_show_user', to: 'find_user#show'
   
