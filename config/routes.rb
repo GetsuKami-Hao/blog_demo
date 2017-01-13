@@ -6,8 +6,6 @@ Rails.application.routes.draw do
 
   get 'articles/show'
 
-  get 'photos/create'
-
 	root 'static_pages#home'
 
   get 'users/show'

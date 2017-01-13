@@ -27,7 +27,7 @@ class ArticlesController < ApplicationController
   def index
   	@user = current_user
 
-  	@articles = @user.articles.paginate(page: params[:page])
+  	@articles = @user.articles.paginate(page: params[:page], per_page: 10)
   end
 
   private
