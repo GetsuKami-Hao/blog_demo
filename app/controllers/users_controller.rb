@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 
   	if @user.save
       flash[:success] = "注册成功"
+      log_in @user
   		redirect_to @user
   	else
       flash.now[:danger] = "注册失败"

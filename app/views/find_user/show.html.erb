@@ -1,0 +1,13 @@
+<% provide(:title, 'Find Users') %>
+
+<div class="find_users">
+	<% if @users %>
+		<% @users.each do |user| %>
+		<ul class="">
+			<li><%= image_tag user.avatar.url(:thumb), class: "img-circle"%></li>
+			<li><label><%= user.name %></label></li>
+		</ul>
+		<% end %>
+	<% end %>
+	
+</div>

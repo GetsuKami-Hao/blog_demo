@@ -1,5 +1,15 @@
 module SessionsHelper
 
+	#记录查找用户
+	def get_find_users
+		session[:users]
+	end
+
+	#存储查找用户
+	def store_find_users(users)
+		session[:users] = users
+	end
+
 	#登陆当前用户
 	def log_in(user)
 		session[:user_id] = user.id

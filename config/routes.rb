@@ -2,8 +2,6 @@ Rails.application.routes.draw do
 
   get 'articles/new'
 
- 
-
   get 'articles/show'
 
 	root 'static_pages#home'
@@ -27,6 +25,7 @@ Rails.application.routes.draw do
   get '/create_article', to: 'articles#new'
   
   post '/find_show_user', to: 'find_user#show'
+  get '/find_show_user', to: 'find_user#show'
   
   resources :users
   resources :articles
