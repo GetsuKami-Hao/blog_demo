@@ -1,0 +1,23 @@
+<% provide(:title, 'Find Users') %>
+
+
+<div class="find_users">
+	<ol class="microposts">
+		<% if @find_users.any? %>
+			<% @find_users.each do |user| %>
+			<ul class="show_finded_users">
+				<li>
+					<%= image_tag user.avatar.url(:thumb), class: "img-circle" %>
+					<label><%= user.name %></label>
+					<div class="find_user_status">
+						<%= button_to "show", user, method: :get, class: "btn btn-default" %>
+						<%= button_to "follow",'#', class: "btn btn-default" %>
+					</div>
+				</li>
+			</ul>
+			<% end %>
+		<% else %>
+			<h1>users are existn't</h1>
+		<% end %>
+	</ol>
+</div>

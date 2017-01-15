@@ -24,8 +24,8 @@ Rails.application.routes.draw do
   post '/create_article', to: "articles#create"
   get '/create_article', to: 'articles#new'
   
-  post '/find_show_user', to: 'find_user#show'
-  get '/find_show_user', to: 'find_user#show'
+  post '/find_show_user', to: 'find_users#search_users'
+  get '/find_show_users', to: 'find_users#show'
   
   resources :users
   resources :articles

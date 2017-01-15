@@ -1,13 +1,11 @@
 module SessionsHelper
 
-	#记录查找用户
-	def get_find_users
-		session[:users]
+	def store_search_str(str)
+		session[:store_serach_str] = str
 	end
 
-	#存储查找用户
-	def store_find_users(users)
-		session[:users] = users
+	def get_search_str
+		session[:store_serach_str]
 	end
 
 	#登陆当前用户
