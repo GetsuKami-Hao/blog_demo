@@ -35,7 +35,12 @@ class UsersController < ApplicationController
     else
       render html: "failure"
     end
+  end
 
+  def articles
+    @user = User.find(params[:id])
+    @articles = @user.articles.paginate(page: params[:page])
+    render 'show_articles'
   end
 
   def following

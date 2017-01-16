@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   patch '/create_relationship', to: 'relationships#create'
   resources :users do
     member do
-      get :following, :followers
+      get :following, :followers, :articles
     end
   end
   resources :relationships, only: [:create, :destroy]
