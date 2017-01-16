@@ -1,40 +1,27 @@
 <% provide(:title, @user.name) %>
 
+<% unless isn_current_user?(@user) %>
+	<%= render 'setting_user' %>
+<% end %>
 
+<section class="stats">
+	<%= render 'shared/stats' %>
+</section>
 
-<div class="user_setting">
-	<p class="glyphicon glyphicon-send" data-toggle="dropdown">  设置</p>
-</div>
+<section>	
+	<% if isn_current_user?(@user) %>
+		<% if current_user && current_user.following?(@user) %>
+			<%= form_for(current_user.active_relationships.find_by(followed_id: @user.id),
+             html: { method: :delete }, remote: true) do |f| %>
+  			<%= f.submit "Unfollow", class: "btn btn-default" %>
+			<% end %>
 
-<div class = "btn-group", id="btnGroup">
-	<%= content_tag :button , "基础设置" ,class: "btn btn-default", 
-																					onclick: "changeResult('account_info', 'user_info');" %>
-	<%= content_tag :button , "个人资料" ,class: "btn btn-default" %>
-	<%= content_tag :button , "社交帐号" ,class: "btn btn-default" %>
-	<%= content_tag :button , "账号管理" ,class: "btn btn-default" , 
-																									onclick: "changeResult('user_info','account_info')" %>
-	<%= content_tag :button , "其他" ,class: "btn btn-default" %>
-</div>
-
-	
-
-<div class = "user_info", id = "user_info" >
-	<%= image_tag @user.avatar.url(:thumb), class: "img-circle"%>
-	<%= form_for(@user,url: update_path, html: { multipart: true }) do |form| %>
-		<%= form.file_field :avatar ,placeholder: "上传头像", class: "update_photo" %>
-		<%= form.label "邮箱" %>
-		<fieldset disabled>
-			<%= form.email_field :email, id: "disabledEmailInput" ,class: "form-control" %>
-		</fieldset>
-		<%= form.label "昵称" %>
-		<%= form.text_field :name , class: "form-control" %>
-
-  	
-  	<%= form.submit "确定", class: "btn btn-default" %>
+		<% else %>
+			<%= form_for(current_user.active_relationships.build, remote: true) do |f| %>
+	 			<div><%= hidden_field_tag :followed_id, @user.id %></div>
+	  		<%= f.submit "Follow", class: "btn btn-primary" %>
+			<% end %>
+		<% end %>
 	<% end %>
+</section>
 
-</div>
-
-<div id = "account_info" display = "none" >
-	<%= content_tag :button, "删除帐号" %>
-</div>

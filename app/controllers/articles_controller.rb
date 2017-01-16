@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_action :log_in_user, only: [:new, :create,:destroy]
   def new
   	@article = current_user.articles.build
   end

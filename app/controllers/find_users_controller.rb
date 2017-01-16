@@ -1,4 +1,5 @@
 class FindUsersController < ApplicationController
+
 	def search_users
 		# @user = User.find_by(name: params[:user][:name])
 		

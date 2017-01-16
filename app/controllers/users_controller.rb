@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :log_in_user , only: [:update,:edit]
   def show
   	@user = User.find(params[:id])
   end
@@ -33,6 +34,18 @@ class UsersController < ApplicationController
       render html: "failure"
     end
 
+  end
+
+  def following
+    @user = User.find(params[:id])
+    @users = @user.following.paginate(page: params[:page])
+    render 'show_following'
+  end
+
+  def followers
+    @user = User.find(params[:id])
+    @users = @user.followers.paginate(page: params[:page])
+    render 'show_followers'
   end
 
   private

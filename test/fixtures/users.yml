@@ -4,3 +4,15 @@ login_user:
   name: "Example user1"
   email: "example1@example.com"
   password_digest: <%= User.digest('password') %>
+
+follower:
+  name: "Example user2"
+  email: "example2@example.com"
+  password_digest: <%= User.digest('password') %>
+
+
+followed:
+  name: "Example user2"
+  email: "example2@example.com"
+  password_digest: <%= User.digest('password') %>
+  

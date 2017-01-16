@@ -7,6 +7,19 @@ class UserTest < ActiveSupport::TestCase
   																													password_confirmation: "111111")
   end
 
+  test "should follow and unfollow a user" do
+    follower = users(:follower)
+    followed = users(:followed)
+    assert_not follower.following?(followed)
+
+    follower.follow(followed)
+    assert follower.following?(followed)
+    assert followed.followers.include?(follower)
+
+    follower.unfollow(followed)
+    assert_not follower.following?(followed)
+  end
+
   test "email must presence" do 
   	@user.email = "\n"
   	

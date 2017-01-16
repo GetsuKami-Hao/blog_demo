@@ -1,9 +1,9 @@
 module SessionsHelper
-
+	#存储需要查询的条件
 	def store_search_str(str)
 		session[:store_serach_str] = str
 	end
-
+	# 获得查询条件
 	def get_search_str
 		session[:store_serach_str]
 	end
@@ -22,6 +22,19 @@ module SessionsHelper
 	# 判断当前用户是否登陆
 	def logged_in?
 		!current_user.nil?
+	end
+
+	#　user 不是当前用户
+	def isn_current_user?(user)
+		current_user != user
+	end
+
+	# 进行动作前登陆用户
+	def log_in_user
+		if !logged_in?
+			flash[:danger] = "please log in!"
+			redirect_to login_url
+		end
 	end
 
 	#用户退出
