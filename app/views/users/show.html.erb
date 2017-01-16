@@ -2,26 +2,28 @@
 
 <% unless isn_current_user?(@user) %>
 	<%= render 'setting_user' %>
-<% end %>
+<% else %>
+	<section class="show_other_user">
+		<%= render 'user_info' %>
+	</section>
+<% end %>	
+	<section class="stats">
+		<%= render 'shared/stats' %>
+	</section>
 
-<section class="stats">
-	<%= render 'shared/stats' %>
-</section>
-
-<section>	
-	<% if isn_current_user?(@user) %>
-		<% if current_user && current_user.following?(@user) %>
-			<%= form_for(current_user.active_relationships.find_by(followed_id: @user.id),
-             html: { method: :delete }, remote: true) do |f| %>
-  			<%= f.submit "Unfollow", class: "btn btn-default" %>
-			<% end %>
-
-		<% else %>
-			<%= form_for(current_user.active_relationships.build, remote: true) do |f| %>
-	 			<div><%= hidden_field_tag :followed_id, @user.id %></div>
-	  		<%= f.submit "Follow", class: "btn btn-primary" %>
-			<% end %>
-		<% end %>
+	<div><%= render 'follow' %></div>
+  
+  <%= will_paginate @articles,class: "will_page" %>
+  <% if @articles.any? && isn_current_user?(@user) %>
+    
+		<ol class="microposts">
+			<ul class="user_articles">
+				<h3>Articles (<%= @articles.count %>)</h3>
+				<%= render(@articles) %>
+			</ul>
+		</ol>
 	<% end %>
-</section>
+
+
+
 

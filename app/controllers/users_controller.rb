@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   before_action :log_in_user , only: [:update,:edit]
   def show
   	@user = User.find(params[:id])
+    
+    @articles = @user.articles.paginate(page: params[:page], per_page: 10)
   end
 
   def new

@@ -8,7 +8,31 @@
   box-sizing:         border-box;
 }
 
+/* other_user */
 
+.show_other_user{
+  label{
+    margin-left: 20px;
+  }
+}
+
+#follow_btn{
+  margin-left: -3em;
+  width: 15em;
+  margin-top: 10px;
+}
+
+.user_articles{
+  margin-left: 14em;
+  margin-top: -13em;
+}
+
+.will_page{
+  margin-left: 17em;
+  margin-bottom: 14em;
+  margin-top: -13em;
+}
+/*  */
 .stats {
   overflow: auto;
   margin-top: 0;
