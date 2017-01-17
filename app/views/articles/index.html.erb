@@ -1,21 +1,10 @@
 <% provide(:title, 'All articles') %>                                                                                                                
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info_index">
-      <h1>
-        
-        <%= image_tag current_user.avatar.url(:thumb), class: "img-circle"%><br \>
-        <%= @user.name %>
-      </h1>
-    </section>
-  </aside>
 
 
 <%= will_paginate %>
 
   <div class="col-md-8">
     <% if @articles.any? %>
-      <h3>Articles (<%= @articles.count %>)</h3>
       <ol class="microposts">
         <ul class="articles">
 					<%= render(@articles) %>

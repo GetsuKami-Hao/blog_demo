@@ -1,5 +1,4 @@
 <% provide(:title, @article.title) %>
-
 	
 <div class="row">
   <aside class="col-md-4">
@@ -7,7 +6,6 @@
       <h1>
         <%= image_tag @user.avatar.url(:thumb), class: "img-circle" %>
         <%= content_tag(:label, @user.name) %>
-
       </h1>
     </section>
   </aside>
@@ -15,8 +13,10 @@
   <div class="col-md-8">
     title: <%= @article.title %><br \>
     content: <%= @article.content %><br \>
-		<%= link_to "delete", @article, method: :delete , 
+    <% if logged_in? && isn_current_user?(@user) %>
+		  <%= link_to "delete", @article, method: :delete , 
 															data: { confirm: "You sure?" } %>
+    <% end %>
   </div>
 </div>
 
