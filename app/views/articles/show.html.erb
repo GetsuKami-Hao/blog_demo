@@ -13,7 +13,7 @@
   <div class="col-md-8">
     title: <%= @article.title %><br \>
     content: <%= @article.content %><br \>
-    <% if logged_in? && isn_current_user?(@user) %>
+    <% if logged_in? && !isn_current_user?(@user) %>
 		  <%= link_to "delete", @article, method: :delete , 
 															data: { confirm: "You sure?" } %>
     <% end %>
