@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   patch '/update', to: 'users#update'
   post '/signup', to: 'users#create'
   post '/find_users', to: 'users#find_users'
-
+  get '/show_find_users', to: 'users#show_find_users'
   
   get  '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'

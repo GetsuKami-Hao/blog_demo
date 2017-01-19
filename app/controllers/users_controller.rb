@@ -61,11 +61,16 @@ class UsersController < ApplicationController
       redirect_to root_url
     else
       str = params[:user][:name]
-      @users = User.where("name like ?" , "%#{str}%").paginate(
-                                              page: params[:page], per_page: 10)
-
-      render 'show_find_users'
+      store_search_str(str)
+      redirect_to show_find_users_url
     end
+  end
+
+  def show_find_users
+    str = get_search_str
+    @users = User.where("name like ?" , "%#{str}%").paginate(
+                                              page: params[:page], per_page: 10)
+      
   end
 
   private
