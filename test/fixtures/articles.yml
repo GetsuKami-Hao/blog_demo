@@ -1,8 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+login_user:
   content: MyText
-  user: one
 
 two:
   content: MyText
