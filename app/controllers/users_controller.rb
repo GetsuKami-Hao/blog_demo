@@ -55,6 +55,19 @@ class UsersController < ApplicationController
     render 'show_followers'
   end
 
+  def find_users
+    if params[:user][:name].nil? || params[:user][:name].length <= 0
+      flash[:danger] = "查询不可为空"
+      redirect_to root_url
+    else
+      str = params[:user][:name]
+      @users = User.where("name like ?" , "%#{str}%").paginate(
+                                              page: params[:page], per_page: 10)
+
+      render 'show_find_users'
+    end
+  end
+
   private
   	def create_user_params 
   		params.require(:user).permit(:name,:email,:password,:password_confirmation)

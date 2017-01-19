@@ -3,8 +3,8 @@
 <%= will_paginate %>
 <div class="find_users">
 	<ol class="microposts">
-		<% if @find_users.any? %>
-			<%= render(@find_users) %>
+		<% if @users.any? %>
+			<%= render(@users) %>
 			<!--　使用的是view/users/_user.html.erb -->
 		<% else %>
 			<h1>users are existn't</h1>
