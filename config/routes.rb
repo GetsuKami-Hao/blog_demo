@@ -26,7 +26,8 @@ Rails.application.routes.draw do
 
   post '/create_article', to: "articles#create"
   get '/create_article', to: 'articles#new'
-  
+  post '/find_articles', to: 'articles#find_articles'
+  get '/show_find_articles', to: 'articles#show_find_articles'
 
   patch '/create_relationship', to: 'relationships#create'
 
@@ -38,4 +39,5 @@ Rails.application.routes.draw do
   end
   resources :relationships, only: [:create, :destroy]
   resources :articles
+  resources :comments
 end

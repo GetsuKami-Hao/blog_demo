@@ -1,0 +1,13 @@
+<% provide(:title, 'Find Articles') %>
+
+<%= will_paginate %>
+<div class="find_users">
+	<ol class="microposts">
+		<% if @articles.any? %>
+			<%= render(@articles) %>
+			<!--　使用的是view/users/_user.html.erb -->
+		<% else %>
+			<h1>Articles are existn't</h1>
+		<% end %>
+	</ol>
+</div>

@@ -18,6 +18,20 @@
 															data: { confirm: "You sure?" } %>
     <% end %>
   </div>
-</div>
 
+  <div class="comments">
+    <% @comments.each do |comment| %>
+      <%= comment.content %>
+    <% end %>
+  </div>
+
+
+  <div class="add_comment">
+    <%= form_for(@comment = current_user.comments.build, url: comments_path)do |form| %>
+      <%= hidden_field_tag :article_id, @article.id %>
+      <%= form.label "内容" %>
+      <%= form.text_area :content , class: "area-default" %>
+      <%= form.submit "确定",class: "btn btn-default" %>
+    <% end %>
+  </div>
 </div>
