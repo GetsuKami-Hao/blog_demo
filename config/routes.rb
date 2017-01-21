@@ -8,8 +8,6 @@ Rails.application.routes.draw do
 
   get 'users/show'
 
-
-
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
  
   get '/signup', to: 'users#new'
@@ -22,12 +20,8 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-
-
   post '/create_article', to: "articles#create"
   get '/create_article', to: 'articles#new'
-  post '/find_articles', to: 'articles#find_articles'
-  get '/show_find_articles', to: 'articles#show_find_articles'
 
   patch '/create_relationship', to: 'relationships#create'
 

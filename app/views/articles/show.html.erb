@@ -21,7 +21,8 @@
 
   <div class="comments">
     <% @comments.each do |comment| %>
-      <%= comment.content %>
+      <li><%= comment.content %></li>
+      <li><%= comment.user.name %></li>
     <% end %>
   </div>
 
