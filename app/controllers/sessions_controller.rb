@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 			
 			redirect_to @user
 		else
-			flash.now[:danger] = "帐号或密码错误"
+			flash.now[:danger] = '帐号或密码错误'
 			render 'new'
 		end
 	end

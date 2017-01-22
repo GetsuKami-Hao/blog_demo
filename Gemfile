@@ -39,6 +39,7 @@ gem 'bootstrap-sass' , '~> 3.3.7'
 gem "paperclip", "~> 5.1.0"
 
 gem 'rails-controller-testing'
+gem 'rubocop', '~> 0.47.1', require: false
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

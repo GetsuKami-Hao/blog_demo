@@ -10,10 +10,10 @@ class CommentsController < ApplicationController
 																				content: params[:comment][:content])
 
 		if @comment.save
-			flash[:success] = "add comment success."
+			flash[:success] = 'add comment success.'
 			redirect_to @article
 		else
-      flash[:danger] = "add comment fail."
+      flash[:danger] = 'add comment fail.'
   		render 'new'
   	end
 	end

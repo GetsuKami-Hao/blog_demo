@@ -7,10 +7,10 @@ class ArticlesController < ApplicationController
   def create
   	@article = current_user.articles.build(article_params)
   	if @article.save
-  		flash.now[:success] = "发布成功。"
+  		flash.now[:success] = '发布成功。'
   		redirect_to @article
   	else
-      flash.now[:danger] = "发布失败。"
+      flash.now[:danger] = '发布失败。'
   		render 'new'
   	end
   end
@@ -18,12 +18,12 @@ class ArticlesController < ApplicationController
   def show
   	@article = Article.find(params[:id])
     @user = User.find(@article.user_id)
-    @comments = Comment.where("article_id = ?", "#{@article.id}")
+    @comments = Comment.where('article_id = ?', '#{@article.id}')
   end
 
   def destroy
   	if Article.find(params[:id]).destroy
-  		flash[:success] = "deleted success."
+  		flash[:success] = 'deleted success.'
   		redirect_to articles_url
   	end
   end

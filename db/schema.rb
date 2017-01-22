@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170119094350) do
+ActiveRecord::Schema.define(version: 20170122060412) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "content",    limit: 65535
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20170119094350) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.string   "title"
+    t.index ["title"], name: "index_articles_on_title", using: :btree
     t.index ["user_id"], name: "index_articles_on_user_id", using: :btree
   end
 
@@ -52,6 +53,7 @@ ActiveRecord::Schema.define(version: 20170119094350) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.index ["email"], name: "index_users_on_email", using: :btree
+    t.index ["name"], name: "index_users_on_name", using: :btree
   end
 
   add_foreign_key "articles", "users"

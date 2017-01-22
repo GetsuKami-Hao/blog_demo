@@ -14,11 +14,11 @@ class UsersController < ApplicationController
   	@user = User.new(create_user_params)
 
   	if @user.save
-      flash[:success] = "注册成功"
+      flash[:success] = 'signup success.'
       log_in @user
   		redirect_to @user
   	else
-      flash.now[:danger] = "注册失败"
+      flash.now[:danger] = 'signup fail.'
   		render 'new'
   	end
  
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
     if @user.update_attributes(user_avatar)
       redirect_to @user
     else
-      render html: "failure"
+      render html: 'failure'
     end
   end
 
@@ -57,7 +57,7 @@ class UsersController < ApplicationController
 
   def find_users
     if params[:user][:name].nil? || params[:user][:name].length <= 0
-      flash[:danger] = "查询不可为空"
+      flash[:danger] = 'search information can\'t is empty '
       redirect_to root_url
     else
       str = params[:user][:name]
