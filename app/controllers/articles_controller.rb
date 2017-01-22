@@ -17,8 +17,8 @@ class ArticlesController < ApplicationController
 
   def show
   	@article = Article.find(params[:id])
-    @user = User.find(@article.user_id)
-    @comments = Comment.where('article_id = ?', '#{@article.id}')
+    @user = @article.user
+    @comments = @article.comments
   end
 
   def destroy
@@ -30,6 +30,24 @@ class ArticlesController < ApplicationController
 
   def index
   	@articles = Article.all.paginate(page: params[:page], per_page: 10)
+  end
+
+  def find_articles
+    if params[:article][:title].nil? || params[:article][:title].length <= 0
+      flash[:danger] = 'search information can\'t is empty '
+      redirect_to root_url
+    else
+      str = params[:article][:title]
+      store_search_str(str)
+      redirect_to show_find_articles_url
+    end
+  end
+
+  def show_find_articles
+    str = get_search_str
+    @articles = Article.where("title like ?" , "%#{str}%").paginate(
+                                              page: params[:page], per_page: 10)
+      
   end
 
   private

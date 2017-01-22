@@ -20,7 +20,9 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  post '/create_article', to: "articles#create"
+  post '/find_articles', to: 'articles#find_articles'
+  get '/show_find_articles', to: 'articles#show_find_articles'
+  post '/create_article', to: 'articles#create'
   get '/create_article', to: 'articles#new'
 
   patch '/create_relationship', to: 'relationships#create'
