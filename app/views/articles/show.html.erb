@@ -21,12 +21,15 @@
 
   <div class="comments">
     <% @comments.each do |comment| %>
-      <li><%= comment.content %></li>
-      <li><%= comment.user.name %></li>
+      <li>content: <%= comment.content %></li>
+      <li>user: <%= comment.user.name %></li>
     <% end %>
   </div>
 
   <% if logged_in?  %>
+    <div class="like">
+      <%= link_to '','#',class: "glyphicon glyphicon-heart", remote: true %>
+    </div>
     <div class="add_comment">
       <%= form_for(@comment = current_user.comments.build, url: comments_path)do |form| %>
         <%= hidden_field_tag :article_id, @article.id %>

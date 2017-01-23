@@ -90,6 +90,22 @@
   }
 }
 
+/* like it */
+
+.like{
+  a{
+    color:white;
+    text-decoration:none;
+  }
+  .glyphicon-heart{
+    font-size: 100px;
+    color: #cccccc;
+
+    &:active{
+      color: red;
+    }
+  }
+}
 
 /* articles */
 
@@ -135,11 +151,217 @@ aside {
   }
 }
 
-span.picture {
+span　.picture {
   margin-top: 10px;
   input {
     border: 0;
   }
+}
+
+/* yue 1 */
+
+
+/*.icono-search-button:before{*/
+/*position:absolute;*/
+/*width:5px;*/
+/*height:5px;*/
+/*top:-10px;*/
+/*left:-100px;*/
+/*border:2px solid;*/
+/*}*/
+.add_comment{
+  margin-top: 80px;
+}
+.main_article {
+    position: relative;
+    width: 1024px;
+    margin: 0 auto;
+  
+  .passage {
+    position: relative;
+    display: inline-block;
+    width: 800px;
+    top: 4px;
+    float: left;
+    color: #fff;
+    // box-shadow: 3px 3px 2px #3f3f3f;
+    background-color: #eeeeee;
+    
+    .passage-title {
+      padding: 20px 0;
+      background: #eeeeee;
+      text-align: left;
+      color: #111111;
+      font-size: 20px;
+      margin-left: 10px;
+      // margin-top: 3px;
+    }
+
+    .img-circle{
+      height: 60px;
+      width: 60px;
+      margin-left: 50em;
+      margin-top: -8em;
+      &:hover{
+        height: 160px;
+        width: 160px;
+      }
+    }
+  }
+
+  .passage-content {
+    background: #ffffff;
+    padding: 30px 40px;
+    text-indent: 2em;
+    color: #ccccee;
+  }
+
+  .passage-content p {
+    padding: 10px 0;
+  }
+}
+
+.show_article_fixed{
+   position: fixed;
+   top: 15em;
+   left: 18em;
+}
+
+.other-passage-list {
+    position: absolute;
+    display: inline-block;
+    width: 218px;
+    left: 805px;
+    top: 4px;
+    color: #fff;
+    // box-shadow: 3px 3px 2px 0 #5a5a5a;
+}
+
+.other-passage-list p {
+    background: #363636;
+    height: 30px;
+    line-height: 30px;
+    text-indent: 1em;
+    font-size: 16px;
+}
+
+.icono-list {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    top: 9px;
+    left: 2px;
+    border: 2px solid;
+    transform: skew(-10deg, 10deg) rotate(35deg) scale(0.9);
+    border-left: none;
+    border-bottom: none;
+}
+
+.other-passage-list ul {
+    list-style-type: none;
+    text-decoration: none;
+    background: #3f3f3f;
+    padding: 0 0 10px;
+}
+
+.other-passage-items a {
+    display: block;
+    padding: 7px 10px 0 30px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.message-input {
+    position: relative;
+    clear: both;
+    width: 1024px;
+    margin: 0 auto;
+    top: 8px;
+
+  h2 {
+    color: #fff;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+  }
+}
+
+
+.message-text {
+    width: 1024px;
+    height: 200px;
+    border: 1px solid #aaa;
+    border-radius: 2px;
+    font-size: 18px;
+    margin-left: 0px;
+}
+
+.message-submit {
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    float: right;
+    background: #353535;
+    border: none;
+    color: #fff;
+}
+
+.message-list {
+    position: relative;
+    top: 50px;
+    width: 1024px;
+    margin: 0 auto;
+    background: #363636;
+    color: #fff;
+}
+
+.message {
+    border-bottom: 1px solid yellow;
+    margin-top: 20em;
+    background-color: red;
+}
+
+.message-information img {
+    position: relative;
+    display: inline-block;
+    width: 90px;
+    height: 90px;
+    margin:10px;
+    border-radius:50%;
+}
+
+.message-information a {
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    top: -90px;
+    left:110px;
+    color:#fff;
+}
+.message-time{
+    position:relative;
+    top:-90px;
+    right:-12%;
+}
+
+.message-content{
+    position: relative;
+    display: inline-block;
+    width:800px;
+    border-top:1px dashed;
+    top:-80px;
+    left:110px;
+    padding-top: 10px;
+}
+.message-floor{
+    position: relative;
+    display: inline-block;
+    background:#3f3f3f;
+    padding: 2px;
+    width: 50px;
+    top:-131px;
+    left:94.7%;
+    text-align:center;
 }
 
 /* button */

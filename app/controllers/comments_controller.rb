@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+	before_action :log_in_user, only: [:new, :create]
 
 	def new
 		@comment = current_user.comments.build
