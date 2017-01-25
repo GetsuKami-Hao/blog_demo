@@ -1,0 +1,45 @@
+<% provide(:title, @article.title) %>
+	
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= image_tag @user.avatar.url(:thumb), class: "img-circle" %>
+        <%= content_tag(:label, @user.name) %>
+      </h1>
+    </section>
+  </aside>
+  
+  <div class="col-md-8">
+    title: <%= @article.title %><br \>
+    content: <%= @article.content %><br \>
+    <% if logged_in? && !isn_current_user?(@user) %>
+		  <%= link_to "delete", @article, method: :delete , 
+															data: { confirm: "You sure?" } %>
+    <% end %>
+  </div>
+
+  <div class="comments">
+    <% @comments.each do |comment| %>
+      <li>content: <%= comment.content %></li>
+      <li>user: <%= comment.user.name %></li>
+    <% end %>
+  </div>
+
+  <% if logged_in?  %>
+    <div class="like">
+   
+      <%= link_to '','#',class: "glyphicon glyphicon-heart asd", remote: true %>
+    
+    </div>
+    <div class="add_comment">
+      <%= form_for(@comment = current_user.comments.build, url: comments_path)do |form| %>
+        <%= hidden_field_tag :article_id, @article.id %>
+        <%= form.label "内容" %>
+        <%= form.text_area :content , class: "area-default" %>
+        <%= form.submit "确定",class: "btn btn-default" %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
