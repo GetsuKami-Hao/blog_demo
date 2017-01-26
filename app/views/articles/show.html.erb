@@ -28,21 +28,10 @@
       <div class="message-header">
         <span>共收到 <b><%= @comments.count %></b> 条回复</span>
       </div>
-      <% @comments.each do |comment| %>
-        <div class="message-body">
-          <div class="message-item">          
-            <%= link_to (image_tag comment.user.avatar.url(:thumb) ,class: "img-circle") ,user_path(comment.user) %>
-            <span><%= link_to comment.user.name, comment.user %></span>
-
-            <article><%= comment.content %></article>
-
-            <hr color='#eee' />    
-          </div>
-        </div>
-      <% end %>
+      <%= render @comments %>
     </div>
   <% end %>        
-    <div id="page-bottom"></div>
+    
   </div>
   <div class="passage-state">
     <a href="#page-top" class="page-up"><i></i></a>
@@ -56,9 +45,10 @@
     </div>
     <hr color="#eee"/>
     <div class="passage-reply">
-      <div>共收到 <b>x</b> 条回复</div>
+      <div>共收到 <b><%= @comments.count %></b> 条回复</div>
         <a href="#">参与回复</a>
       </div>
       <a href="#page-bottom" class="page-down"><i></i></a>
     </div>
 </div>
+<div id="page-bottom"></div>

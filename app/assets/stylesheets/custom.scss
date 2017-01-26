@@ -90,24 +90,14 @@
   }
 }
 
-/* like it */
-
-.like{
-  a{
-    color:white;
-    text-decoration:none;
-  }
-  .asd{
-    font-size: 100px;
-    color: red;
-  }
-}
 
 /* articles */
 
 .microposts {
+  background:#fff;
   list-style: none;
   padding: 0;
+
   li {
     padding: 10px 0;
     border-top: 1px solid #e8e8e8;
@@ -137,6 +127,7 @@
     float: left;
     margin-right: 10px;
     margin-top: 5px;
+    margin-left: 10px;
   }
 }
 
@@ -402,6 +393,7 @@ body {
 }
 .messages{
   margin:10px 0 0;
+
 }
 .message-header{
   position: relative;
@@ -417,6 +409,7 @@ body {
   color:#353535;
   font-family:黑体;
 }
+
 .message-body{
   position: relative;
   width: 830px;
@@ -425,6 +418,7 @@ body {
   background:#fff;
   // margin-top: -18px;
   .message-item{
+    border-bottom: 1px solid #eee;
 
     .img-circle{
       width: 50px;
@@ -434,6 +428,7 @@ body {
     }
     article{
       margin-left: 80px;
+      margin-bottom: 10px;
     }
     a{
       color: #6C6C6C;
@@ -442,6 +437,9 @@ body {
       
       margin-left: 10px;
       margin-top: 0px;
+    }
+    hr{
+      height: 1px;
     }
 
   }
