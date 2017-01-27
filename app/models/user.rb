@@ -17,7 +17,7 @@ class User < ApplicationRecord
 	has_many :active_likes, class_name:  "Like",
                           foreign_key: "liker_id",
                           dependent:   :destroy
-
+  has_many :liker, through: :active_likes
 
 	validates :name, presence: true, length: { maximum: 20 }
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -36,8 +36,16 @@ class User < ApplicationRecord
 																	# default_url: "/images/:style/missing.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/								
 
-  def like(article)
-  	
+  def like_article(article)
+  	active_likes.create(liked_article_id: article.id)
+  end
+
+  def unlike_article(article)
+  	active_likes.find_by(liked_article_id: article.id).destroy
+  end
+
+  def like_article?(article)
+  	!!active_likes.find_by(liked_article_id: article.id)
   end
 
   def follow(other_user)

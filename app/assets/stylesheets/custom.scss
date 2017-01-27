@@ -56,6 +56,24 @@
   }
 }
 
+/* like article */
+.passage-praise{
+  a{
+    display: block;
+    text-decoration:none;
+    font-size: 90px;
+    text-align: center;
+    margin-top: 40px;
+  }
+  #like_article{
+    color: #cccccc;
+  }
+
+  #unlike_article{
+    color: red;
+  }
+}
+
 /* show_find_users */
 .find_users{
   .img-circle{
@@ -354,8 +372,9 @@ body {
 .praise-num {
   position: relative;
   display: inline-block;
-  top: 102px;
-  left: 110px;
+  top: 60px;
+  left: 125px;
+
 }
 .share-group{
   position: relative;

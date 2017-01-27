@@ -6,8 +6,9 @@ class Article < ApplicationRecord
   validates :user_id, presence: true
 
   has_many :passive_likes, class_name:  "Like",
-                           foreign_key: "liked_id",
+                           foreign_key: "liked_article_id",
                            dependent:   :destroy
+	has_many :liked_article, through: :passive_likes                           
 
 	# has_many :followers, through: :passive_relationships, source: :follower
 

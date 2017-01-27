@@ -19,8 +19,8 @@
       </div>
             
       <div class="passage-footer">
-        <a href="#"><i></i></a>
-        <span> <b>x</b> 个赞</span>
+        <i></i>
+        <span> <b><%= @article.liked_article.count %></b> 个赞</span>
       </div>
     </div>
   <% if @comments.any? %>  
@@ -33,11 +33,12 @@
   <% end %>        
     
   </div>
+
   <div class="passage-state">
     <a href="#page-top" class="page-up"><i></i></a>
     <div class="passage-praise">
-      <a href="#"><i></i></a>
-      <span class="praise-num">X 个赞</span>
+      <%= render 'like' %>
+      <span class="praise-num"><%= @article.liked_article.count %>个赞</span>
     </div>
     <hr color="#eee"/>
     <div class="share-group">
@@ -52,3 +53,5 @@
     </div>
 </div>
 <div id="page-bottom"></div>
+
+ 
