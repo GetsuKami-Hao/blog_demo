@@ -30,9 +30,21 @@
       </div>
       <%= render @comments %>
     </div>
-  <% end %>        
-    
-  </div>
+  <% end %> 
+
+  <% if logged_in?  %>
+    <div class="message-input">
+      <p>回帖</p>
+      <%= form_for(@comment = current_user.comments.build, url: comments_path)do |form| %>
+        <%= hidden_field_tag :article_id, @article.id %>
+        <%= form.text_area :content , class: "message-text" %>
+        <%= form.submit "提交回复",class: "message-submit" %>
+      <% end %>
+    </div>
+  <% else %>
+    <%= link_to '登陆', login_path %>
+  <% end %>
+ </div>
 
   <div class="passage-state">
     <a href="#page-top" class="page-up"><i></i></a>

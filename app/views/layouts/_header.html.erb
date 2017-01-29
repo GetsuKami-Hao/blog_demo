@@ -40,9 +40,9 @@
       <div class="user_status">
         <div class="login_or_signup"> 
           <ul class="nav navbar-nav navbar-right">
-          <% if !logged_in? %>
-            <li><%= link_to "注册",  signup_path %></li>
-            <li><%= link_to "登陆",  login_path %></li>
+            <% if !logged_in? %>
+             <li><%= link_to "注册",  signup_path %></li>
+             <li><%= link_to "登陆",  login_path %></li>
           </ul>
         </div>
           <% else %>
@@ -59,6 +59,8 @@
         </li>
           <% end %>
       </div>
-    </div>  <!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </div>
+  </div>
 </nav>
+
+ 
