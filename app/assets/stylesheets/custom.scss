@@ -507,6 +507,228 @@ body {
 
   }
 }
+/* user_show */
+
+.self-setting {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  margin: 0 auto;
+  top: 0px;
+  #self-tabs {
+    position: relative;
+    display: inline-block;
+    list-style-type: none;
+    li {
+      float: left;
+      label[for$='-setting'] {
+        display: inline-block;
+        width: 118px;
+        height: 40px;
+        line-height: 40px;
+        margin: 1px;
+        background: #fff;
+        font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+        color: #6d6d6d;
+        text-align: center;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+div[id$='-content'] {
+  position: absolute;
+  display: none;
+  left: 0;
+  width: 99.8%;
+  height: 400px;
+  border: 1px solid #ddd;
+  border-top: none;
+  border-radius: 0 0 5px 5px;
+}
+
+input[id$='-setting'] {
+  position: absolute;
+  top: -9999px;
+}
+
+input[id$='-setting']:checked ~ label {
+  border: none;
+  outline: none;
+  box-shadow: 0 0 9px #0facbd;
+}
+
+input[id$='-setting']:checked ~ div[id$='-content'] {
+  display: block;
+}
+
+#basic-content {
+  
+  img {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    top: 20px;
+    left: 40px;
+  }
+  form {
+    position: relative;
+    top: 20px;
+    left: 160px;
+    div {
+      position: relative;
+      height: 60px;
+      padding-bottom: 15px;
+      color: #343434;
+    }
+    label {
+      font-size: 15px;
+    }
+    input[id^='basic-'] {
+      width: 290px;
+      height: 35px;
+      border: 1px solid #bbb;
+      border-radius: 3px;
+
+      &:focus {
+        box-shadow: 0 0 9px #0facdb;
+        border: none;
+        outline: none;
+        width: 295px;
+      }
+    }
+    div:first-child {
+      position: absolute;
+      top: -67px;
+    }
+  }
+}
+
+#self-data-content {
+  form {
+    position: relative;
+    top: 50px;
+    left: 60px;
+    div {
+      position: relative;
+      padding-bottom: 25px;
+      font-size: 15px;
+      color: #343434;
+      label {
+        padding-right: 40px;
+      }
+      span {
+        font-size: 15px;
+        padding-right: 20px;
+      }
+      input[type="text"] {
+        width: 290px;
+        height: 35px;
+        border: 1px solid #bbb;
+        border-radius: 3px;
+        &:focus {
+          box-shadow: 0 0 9px #0facdb;
+          border: none;
+          outline: none;
+          width: 295px;
+        }
+      }
+      #self-data-introduction {
+        width: 350px;
+        height: 50px;
+      }
+      #self-data-website {
+        width: 350px;
+        height: 35px;
+      }
+    }
+    button {
+      left: 150px;
+    }
+  }
+}
+
+div[id$='-content'] {
+  button {
+    position: relative;
+    background: #fff;
+    border: 1px solid #bbb;
+    width: 200px;
+    height: 35px;
+    top: 10px;
+    left: 45px;
+    border-radius: 3px;
+  }
+  button:hover {
+    background: #efefef;
+  }
+}
+
+#social-intercourse-content {
+  form {
+    position: relative;
+    top: 50px;
+    left: 100px;
+    div {
+      position: relative;
+      padding-bottom: 25px;
+      font-size: 15px;
+      color: #343434;
+      height: 45px;
+      label {
+        display: inline-block;
+        width: 30px;
+      }
+      input {
+        display: inline-block;
+        margin-left: 40px;
+        width: 300px;
+        height: 35px;
+        font-size: 15px;
+        &:focus {
+          outline: none;
+          box-shadow: 0 0 9px #0facdb;
+          width: 305px;
+          margin-left: 40px;
+          border: none;
+        }
+      }
+    }
+    button {
+      left: 120px;
+    }
+  }
+}
+
+#account-management-content {
+  div {
+    position: relative;
+    top: 50px;
+    left: 100px;
+    margin: 30px 0 60px 0;
+    label {
+      display: inline-block;
+      width: 100px;
+    }
+    button {
+      top: 0px;
+      &:focus {
+        border: none;
+        outline: none;
+      }
+    }
+  }
+  div:nth-child(2) {
+    button {
+      background: #c00000;
+      color: #fff;
+    }
+  }
+}
+
+
 
 /* button */
 

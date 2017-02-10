@@ -2,30 +2,103 @@
 	<p class="glyphicon glyphicon-send" data-toggle="dropdown">  设置</p>
 </div>
 
-<div class = "btn-group", id="btnGroup">
-	<%= content_tag :button , "基础设置" ,class: "btn btn-default" %>
-	<%= content_tag :button , "个人资料" ,class: "btn btn-default" %>
-	<%= content_tag :button , "社交帐号" ,class: "btn btn-default" %>
-	<%= content_tag :button , "账号管理" ,class: "btn btn-default" %>
-	<%= content_tag :button , "其他" ,class: "btn btn-default" %>
+<div class="container">
+  <div class="self-setting">
+    <ul id="self-tabs">
+      <li>
+        <input type="radio" name="self-tabs" id="basic-setting" checked/>
+        <label for="basic-setting">基础设置</label>
+					<div id="basic-content">
+						
+						<%= image_tag @user.avatar.url(:thumb), class: "img-circle"%>
+						<%= form_for(@user,url: update_path, html: { multipart: true }) do |form| %>
+							<%= form.file_field :avatar ,placeholder: "上传头像", class: "update_photo" %>
+							<%= form.label "邮箱" %>
+								<fieldset disabled>
+									<%= form.email_field :email, id: "disabledEmailInput" ,class: "form-control" %>
+								</fieldset>
+							<%= form.label "昵称" %>
+							<%= form.text_field :name , class: "form-control" %>
+							<%= form.submit "确定", class: "btn btn-default" %>
+						<% end %>
+          </div>
+      </li>
+      
+      <li>
+        <input type="radio" name="self-tabs" id="self-data-setting" />
+        <label for="self-data-setting">个人资料</label>
+        <div id="self-data-content">
+          <form>
+            <div>
+              <label><b>性　　别</b></label>
+              <input id="self-data-sex-male" type="radio" value="male" name="sex"/>
+              <span>男</span>
+              <input id="self-data-sex-female" type="radio" value="female" name="sex"/>
+              <span>女</span>
+              <input id="self-data-sex-secret" type="radio" value="secret"  name="sex"/>
+              <span>秘密</span>
+            </div>
+            <div>
+              <label for="self-data-introduction"><b>个人简介</b></label>
+              <input id="self-data-introduction" type="text">
+            </div>
+            <div>
+              <label for="self-data-website"><b>个人网站</b></label>
+              <input id="self-data-website" type="text"/>
+            </div>
+            <button type="submit">确认修改</button>
+          </form>
+        </div>
+      </li>
+           
+      <li>
+        <input type="radio" name="self-tabs" id="social-intercourse-setting" />
+        <label for="social-intercourse-setting">社交账号</label>
+        <div id="social-intercourse-content">
+        	<form>
+          	<div>
+            	<label for="social-microblog"><b>微博</b></label>
+              <input id="social-microblog" type="text">
+            </div>
+            <div>
+            	<label for="social-wechat"><b>微信</b></label>
+              <input id="social-wechat" type="text">
+            </div>
+           	<div>
+             	<label for="social-qq"><b> Q Q </b></label>
+              <input id="social-qq" type="text">
+            </div>
+            <div>
+            	<label for="social-bean"><b>豆瓣</b></label>
+              <input id="social-bean" type="text">
+            </div>
+            <button type="submit">确认修改</button>
+          </form>
+        </div>
+      </li>
+      
+      <li>
+        <input type="radio" name="self-tabs" id="account-management-setting"/>
+        <label for="account-management-setting">账号管理</label>
+        <div id="account-management-content">
+        	<div>
+          	<label><b>打包下载文章</b></label>
+          	<button type="button">下载所有文章</button>
+          </div>
+          <div>
+          	<label><b>删除账号</b></label>
+            <button type="button" onclick="confirm('确认删除？')">删除账号</button>
+          </div>
+        </div>
+      </li>
+        
+      <li>
+        <input type="radio" name="self-tabs" id="other-setting"/>
+        <label for="other-setting">其他</label>
+        <div id="other-content">
+             我也不知道放什么了T-T
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>
-
-	
-
-<div class = "user_info", id = "user_info" >
-	<%= image_tag @user.avatar.url(:thumb), class: "img-circle"%>
-	<%= form_for(@user,url: update_path, html: { multipart: true }) do |form| %>
-		<%= form.file_field :avatar ,placeholder: "上传头像", class: "update_photo" %>
-		<%= form.label "邮箱" %>
-		<fieldset disabled>
-			<%= form.email_field :email, id: "disabledEmailInput" ,class: "form-control" %>
-		</fieldset>
-		<%= form.label "昵称" %>
-		<%= form.text_field :name , class: "form-control" %>
-
-  	
-  	<%= form.submit "确定", class: "btn btn-default" %>
-	<% end %>
-
-</div>
-
