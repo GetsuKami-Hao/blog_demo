@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-	before_action :log_in_user, only: [:new, :create]
+	before_action :log_in_user, only: [:new, :create,:destroy]
 
 	def new
 		@comment = current_user.comments.build
@@ -17,6 +17,15 @@ class CommentsController < ApplicationController
       flash[:danger] = 'add comment fail.'
   		render 'new'
   	end
+	end
+
+	def destroy
+		comment = Comment.find(params[:id])
+		article = comment.article
+		if comment.destroy
+			flash[:success] = "delete success."
+			redirect_to article
+		end
 	end
 
 end

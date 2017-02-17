@@ -4,5 +4,10 @@
     <span><%= link_to comment.user.name, comment.user %></span>
 
     <article><%= comment.content %></article>
+    <% unless isn_current_user?(comment.user) %>
+    	<%= link_to '', comment , method: :delete, 
+    								data: { confirm: "You sure?" }, 
+    								class: "glyphicon glyphicon-trash delete" %>
+    <% end %>
   </div>
 </div>

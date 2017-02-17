@@ -384,6 +384,11 @@ span　.picture {
     left:40px;
 
   }
+  .delete{
+    // list-style: none;
+    color: #6C6C6C;
+    margin-left: 53em;
+  }
 }
 .passage-footer i,.passage-footer i:before{
   position: absolute;
@@ -561,6 +566,10 @@ span　.picture {
   // margin-top: -18px;
   .message-item{
     border-bottom: 1px solid #eee;
+
+    .delete{
+      margin-left: 56em;
+    }
 
     .img-circle{
       width: 50px;
