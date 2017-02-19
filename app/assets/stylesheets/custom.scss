@@ -856,6 +856,141 @@ div[id$='-content'] {
     margin-left: 33em;
   }
 }
+/* new article */
+
+.new-passage {
+    position: relative;
+    min-width: 200px;
+    min-height: 750px;
+    width: 1200px;
+    margin: 0 auto;
+    top: 30px;
+    border-radius: 7px 7px 0 0;
+    background: #fff;
+}
+
+.new-passage > p {
+    background: #fafafa;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 4px 4px 0 0;
+    color: #7a7a7a;
+    padding: 0 0 0 10px;
+    font-family: '黑体';
+    border-bottom: 1px solid #eee;
+}
+
+.new-passage-header {
+    position: relative;
+    top: 20px;
+    left: 10px;
+    font-size: 20px;
+    margin-left: -17em;
+    margin-top: -5em;
+    label{
+      color: #777777;
+    }
+    #new-passage-title {
+      margin-left: 5px;
+      width: 1090px;
+      height: 50px;
+      border: 1px solid #eee;
+      padding: 0 10px;
+      font-size: 18px;
+      color: #777777;
+  }
+}
+
+
+
+.new-passage-body {
+    position: relative;
+    top: 40px;
+    min-height: 600px;
+}
+
+.new-passage-body ul li {
+    position: relative;
+    float: left;
+    list-style: none;
+}
+
+.new-passage-contents {
+  margin-left: 0px;
+  label {
+    display: inline-block;
+    background: #fafafa;
+    width: 90px;
+    height:35px;
+    line-height:35px;
+    text-align: center;
+    margin:0 0 0 10px;
+    border-radius:7px 7px 0 0;
+    color: #adadad;
+    font-family: "黑体";
+    cursor: pointer;
+  }
+
+  input {
+    position: absolute;
+    top: -9999px;
+  }
+  
+  div {
+    position: absolute;
+    left: 10px;
+    top: 35px;
+    display: none;
+    width:1160px;
+    height:500px;
+    padding: 10px;
+  }
+
+}
+
+
+
+#new-passage-input{
+  padding: 10px;
+  margin-left: 0px;
+  border:2px solid #eee;
+  outline: none;
+  width: 100%;
+  height:100%;
+  font-size:16px;
+  font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
+}
+
+.new-passage-contents > input:checked ~label{
+    background: #d5d5d5;
+    color:#7a7a7a;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+/* 
+#new-passage-preview {
+    position: absolute;
+    left: -90px;
+}
+ */
+.new-passage-contents > input:checked ~ div {
+    display: block;
+}
+.new-passage-commit-button{
+    position: relative;
+    margin-left: 55em;
+    margin-top: -3px;
+    background: #317DDA;
+    border:none;
+    border-radius: 3px;
+    color:#fff;
+    width:150px;
+    height:30px;
+    left:10px;
+    top:10px;
+    font-size: 18px;
+    cursor:pointer;
+}
 
 /* font */
 

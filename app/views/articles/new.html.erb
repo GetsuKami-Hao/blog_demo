@@ -1,6 +1,6 @@
 <%= provide(:title, "新建") %>
 
-
+<!-- 
 <%= image_tag current_user.avatar.url(:thumb), class: "img-circle"%>
 <%= current_user.name %>
 <div class = "new_article">		
@@ -15,4 +15,42 @@
 		
   	<%= form.submit "确定", class: "btn btn-default" %>
 	<% end %>
+</div>
+
+ -->
+
+<div class="new-passage">
+  <p>发布新文章</p>
+  <%= form_for(@article, url: create_article_path)do |form| %>  
+  	<div class="new-passage-main">
+    	<div class="new-passage-header">
+    		<label for="new-passage-title">标题：</label>
+      	<%= form.text_field :title , id: "new-passage-title", placeholder: "Please inupt article title" %>
+      </div>
+
+      <div class="new-passage-body">
+				<ul>
+        	<li class="new-passage-contents">
+          	<input id="new-passage-editor-button" type="radio" name="new-passage" checked>
+
+            <label for="new-passage-editor-button">编辑</label>
+            	<div class="new-passage-editor">
+            		<%= form.text_area :content, id: "new-passage-input" %>
+              </div>
+          </li>
+          <!-- 
+          <li class="new-passage-contents">
+          	<input id="new-passage-preview-button" type="radio" name="new-passage">
+            <label for="new-passage-preview-button">预览</label>
+            <div id="new-passage-preview"></div>
+          </li>
+           -->
+        </ul>
+      </div>
+
+      <div class="new-passage-commit">
+      	<%= form.submit "确 定", class: "new-passage-commit-button"  %>
+      </div>
+    </div>
+  <% end %>
 </div>
