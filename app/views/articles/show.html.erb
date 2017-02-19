@@ -22,9 +22,10 @@
         <i></i>
         <span> <b><%= @article.liked_article.count %></b> 个赞</span>
         <% unless isn_current_user?(@user) %>
+          <%= link_to '', edit_article_path(@article), method: :get , class: "glyphicon glyphicon-pencil update-font" %>
           <%= link_to '', @article , method: :delete, 
                     data: { confirm: "You sure?" }, 
-                    class: "glyphicon glyphicon-trash delete" %>
+                    class: "glyphicon glyphicon-trash delete-font" %>
         <% end %>
       </div>
     </div>

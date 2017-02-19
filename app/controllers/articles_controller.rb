@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :log_in_user, only: [:show,:new, :create,:destroy]
+  before_action :log_in_user
   def new
   	@article = current_user.articles.build
   end
@@ -13,6 +13,20 @@ class ArticlesController < ApplicationController
       flash.now[:danger] = '发布失败。'
   		render 'new'
   	end
+  end
+
+  def edit
+    @article = Article.find(params[:id])
+  end
+
+  def update
+    @article = Article.find(params[:id])
+    if @article.update_attributes(article_params)
+      flash[:success] = "update success."
+      redirect_to @article
+    else
+      render html: 'failure'
+    end
   end
 
   def show
