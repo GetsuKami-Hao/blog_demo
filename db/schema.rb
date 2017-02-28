@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170126140643) do
+ActiveRecord::Schema.define(version: 20170227143321) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "content",    limit: 65535
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20170126140643) do
     t.integer  "liked_comment_id"
     t.index ["liked_article_id"], name: "index_likes_on_liked_article_id", using: :btree
     t.index ["liked_comment_id"], name: "index_likes_on_liked_comment_id", using: :btree
-    t.index ["liker_id", "liked_article_id"], name: "index_likes_on_liker_id_and_liked_article_id", using: :btree
+    t.index ["liker_id", "liked_article_id"], name: "index_likes_on_liker_id_and_liked_article_id", unique: true, using: :btree
     t.index ["liker_id", "liked_comment_id"], name: "index_likes_on_liker_id_and_liked_comment_id", unique: true, using: :btree
     t.index ["liker_id"], name: "index_likes_on_liker_id", using: :btree
   end

@@ -12,7 +12,12 @@ follower:
 
 
 followed:
-  name: "Example user2"
-  email: "example2@example.com"
+  name: "Example user3"
+  email: "example3@example.com"
+  password_digest: <%= User.digest('password') %>
+
+liker:
+  name: "Example user4"
+  email: "example4@example.com"
   password_digest: <%= User.digest('password') %>
   

@@ -14,8 +14,6 @@ class LoginTest < ActionDispatch::IntegrationTest
 
 		assert_template 'sessions/new'
 		assert_not flash.empty?
-		get root_path
-		assert flash.empty?
 	end
 
 	test "login success" do

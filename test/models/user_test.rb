@@ -41,7 +41,7 @@ class UserTest < ActiveSupport::TestCase
 		duplicate_user.email = @user.email.upcase
 		@user.save
 		assert_not duplicate_user.valid? 
-		#assert_not 断言不是真相,期望这里返回 fals or nil
+		#assert_not 断言不是真相,期望这里返回 false or nil
 	end
 
 	test "email address should be lower-case" do

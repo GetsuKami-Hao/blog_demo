@@ -13,13 +13,13 @@
 						<%= image_tag @user.avatar.url(:thumb), class: "img-circle"%>
 						<%= form_for(@user,url: update_path, html: { multipart: true }) do |form| %>
 							<%= form.file_field :avatar ,placeholder: "上传头像", class: "update_photo" %>
-							<%= form.label "邮箱" %>
-								<fieldset disabled>
-									<%= form.email_field :email, id: "disabledEmailInput" ,class: "form-control" %>
-								</fieldset>
+							<%= form.label "邮箱" ,class: "basic_email" %>
+								<!-- <fieldset disabled> -->
+									<%= form.email_field :email, id: "disabledEmailInput" ,class: "form-control basic-user-input",disabled:"disabled" %>
+								<!-- </fieldset> -->
 							<%= form.label "昵称" %>
-							<%= form.text_field :name , class: "form-control" %>
-							<%= form.submit "确定", class: "btn btn-default" %>
+							<%= form.text_field :name , class: "form-control basic-user-input" %>
+							<%= form.submit "确定", class: "btn btn-default basic-input-btn" %>
 						<% end %>
           </div>
       </li>

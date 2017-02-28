@@ -358,8 +358,9 @@ span　.picture {
   margin: 0 10px;
   background: #fff;
   top: -3.5px;
-  padding: 20px 5px 0 15px;
+  padding: 20px 5px 10px 15px;
   box-shadow:1px 0 1px #dfdfdf;
+  font-size:16px;
   p{
     text-indent: 2em;
     line-height: 1.2em;
@@ -447,7 +448,7 @@ span　.picture {
   position: absolute;
   width: 8px;
   height: 8px;
-  border: 4px solid #5c5c5c;
+  border: 3px solid #545454;
   border-radius: 20%;
   top: 9px;
   left:130px;
@@ -460,9 +461,9 @@ span　.picture {
   content: "";
   width: 0;
   height:7px;
-  border:2px solid #5c5c5c;
-  top:-3px;
-  left:0px;
+  border:2px solid #545454;
+  top:-2px;
+  left:-1.5px;
   transform: rotate(-45deg);
 }
 .page-down i{
@@ -568,6 +569,7 @@ span　.picture {
   // height:100px;
   left:10px;
   background:#fff;
+  font-size: 16px;
   // margin-top: -18px;
   .message-item{
     border-bottom: 1px solid #eee;
@@ -665,11 +667,12 @@ input[id$='-setting']:checked ~ div[id$='-content'] {
     border-radius: 50%;
     top: 20px;
     left: 40px;
+    float: left;
   }
   form {
     position: relative;
     top: 20px;
-    left: 160px;
+    left: 0;
     div {
       position: relative;
       height: 60px;
@@ -677,8 +680,21 @@ input[id$='-setting']:checked ~ div[id$='-content'] {
       color: #343434;
     }
     label {
+      position: relative;
+      left:20px;
       font-size: 15px;
     }
+    .basic_email{
+      position: relative;
+      margin:40px 0 5px 0;
+      left:-80px;
+    }
+    .basic-user-input{
+      position: relative;
+      width:500px;
+      left:-205px;
+    }
+
     input[id^='basic-'] {
       width: 290px;
       height: 35px;
@@ -691,6 +707,10 @@ input[id$='-setting']:checked ~ div[id$='-content'] {
         outline: none;
         width: 295px;
       }
+    }
+    .basic-input-btn{
+      position: relative;
+      left:-140px;
     }
     div:first-child {
       position: absolute;
@@ -716,6 +736,9 @@ input[id$='-setting']:checked ~ div[id$='-content'] {
         font-size: 15px;
         padding-right: 20px;
       }
+      input[type="radio"]{
+        width:18px;
+      }
       input[type="text"] {
         width: 290px;
         height: 35px;
@@ -731,10 +754,12 @@ input[id$='-setting']:checked ~ div[id$='-content'] {
       #self-data-introduction {
         width: 350px;
         height: 50px;
+        margin-left:0px;
       }
       #self-data-website {
         width: 350px;
         height: 35px;
+        margin-left:0px;
       }
     }
     button {
@@ -831,36 +856,39 @@ div[id$='-content'] {
 }
 
 #user_avatar{
+  position: relative;
   width: 200px;
+  margin-left: 200px;
+  margin-top:30px;
 }
 //
 
 
 /* picture */
 
-.user_info{
-  margin-top: 30px;
-  .form-control{
-    width: 20em;
-    margin-left: 30em;
-  }
-  label{
-    margin:0;
-    margin-left: 30em;
-  }
+// .user_info{
+//   margin-top: 30px;
+//   .basic-email-input{
+//     width: 20em;
+//     margin-left: 30em;
+//   }
+//   label{
+//     margin:0;
+//     margin-left: 80em;
+//   }
 
-  .update_photo{
-    margin-left: 35em;
-    margin-top: -20px;
-  }
-  img{
-    margin-left: 25em;
-  }
-  .btn-default{
-    width: 15em;
-    margin-left: 33em;
-  }
-}
+//   .update_photo{
+//     // position: absolute;
+//     // top:-100px;
+//   }
+//   img{
+//     margin-left: 25em;
+//   }
+//   .btn-default{
+//     width: 15em;
+//     margin-left: 33em;
+//   }
+// }
 /* new article */
 
 .new-passage {
@@ -1061,13 +1089,13 @@ div[id$='-content'] {
 
 input, .form-control{
   width: 60%;
-  margin-left: 280px;
+  margin-left: 250px;
   margin-top: 0;
 }
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 30%;
-  margin-left: 350px;
+  margin-left: 320px;
   margin-bottom: 15px;
   @include box_sizing;
 }
