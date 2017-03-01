@@ -9,4 +9,6 @@ class Comment < ApplicationRecord
                            foreign_key: "liked_comment_id",
                            dependent:   :destroy
 
+  has_many :liked_comment, through: :passive_likes    
+
 end
