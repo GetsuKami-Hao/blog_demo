@@ -6,7 +6,12 @@
       <div class="passage-header">
         <h1><%= @article.title %></h1>
         <div class="passage-info">
-          <%= link_to @user.name,@user %><span>·发布于x天前</span><span>·最后由</span><%= link_to @comments.last.user.name, @comments.last.user if @comments.any? %></a><span>回复于x天前</span><span>·x次阅读</span>
+          <%= link_to @user.name,@user %><span>·发布于<%= @article.created_at.localtime.strftime("%Y-%m-%d") %></span>
+          <%  if @comments.any? %>
+            <span>·最后由</span><%= link_to @comments.last.user.name, @comments.last.user %></a>
+            <span>回复于<%= @comments.last.created_at.localtime.strftime("%Y-%m-%d") %></span>
+          <% end %>
+          <span>·x次阅读</span>
         </div>
         
         <div class="author-picture">

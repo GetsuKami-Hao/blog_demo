@@ -2,6 +2,10 @@
 class User < ApplicationRecord
 
 	has_many :articles, dependent: :destroy
+	
+	validates_associated :articles 
+	#保存对象时，会在关联的每个对象上调用valid?方法
+
 	has_many :active_relationships, class_name: "Relationship",
 																	foreign_key: "follower_id",
 																	dependent: :destroy
@@ -28,7 +32,9 @@ class User < ApplicationRecord
 	before_save :downcase_email
 
 	has_secure_password
-	validates :password, presence: true, length: { in: 6..20 } , allow_nil: true	
+	validates :password, presence: true, length: { in: 6..20 } , 
+							allow_nil: true	
+
 
 	#　from https://github.com/thoughtbot/paperclip
 	has_attached_file :avatar, styles: { medium: "300x300#", thumb: "100x100#" }, 

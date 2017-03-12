@@ -7,7 +7,7 @@
         <%= link_to (image_tag article.user.avatar.url(:thumb) ,class: "img-circle") ,user_path(article.user) %>
        	<p>
           <b><%= link_to article.user.name,article.user %></b>
-          <span><%= article.created_at %></span>
+          <span><%= article.created_at.localtime.strftime("%Y-%m-%d") %></span>
         </p>
       </div>
       
