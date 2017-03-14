@@ -1,24 +1,39 @@
-# README
+[应用的在线地址 Heroku](https://shujian.herokuapp.com/login)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
 
-* Ruby version
+## 得到应用: 
 
-* System dependencies
+```
+$ git clone https://github.com/GetsuKami/blog_demo.git
+```
+修改database.yml,适合自己的：
 
-* Configuration
+```
+$ vim config/database.yml
+```
 
-* Database creation
+## 执行bundle: 
 
-* Database initialization
+```
+$ bundle install --without production
+```
 
-* How to run the test suite
+## 创建数据库、执行迁移：
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+$ rails db:create
+$ rails db:migrate
+```
 
-* Deployment instructions
+## 运行测试:
 
-* ...
+```
+$ rails test
+```
+
+## 启动服务:
+
+```
+$ rails server
+```
