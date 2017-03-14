@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
     
     @articles = @user.articles.paginate(page: params[:page], per_page: 10)
+    
   end
 
   def new
@@ -39,7 +40,7 @@ class UsersController < ApplicationController
 
   def articles
     @user = User.find(params[:id])
-    @articles = @user.articles.paginate(page: params[:page])
+    @articles = @user.articles.paginate(page: params[:page], per_page: 10)
     render 'show_articles'
   end
 

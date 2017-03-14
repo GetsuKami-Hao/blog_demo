@@ -9,18 +9,17 @@
       </h1>
     </section>
   </aside>
-
-
-<%= will_paginate @articles %>
-
-  <div class="col-md-8">
-    <% if @articles.any? %>
+    
+  <% if @articles.any? %>
+    
+    <div class="col-md-8">
       <h3>Articles (<%= @articles.count %>)</h3>
+      <%= will_paginate @articles %>
       <ol class="microposts">
         <ul class="articles">
           <%= render(@articles) %>
         <ul>
       </ol>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>

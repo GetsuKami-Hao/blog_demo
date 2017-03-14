@@ -14,16 +14,17 @@
 
 	<div><%= render 'follow' %></div>
   
-  <%= will_paginate @articles,class: "will_page" %>
-  <% if @articles.any? && isn_current_user?(@user) %>
-    
-		<ol class="microposts">
-			<ul class="user_articles">
-				<h3>Articles (<%= @articles.count %>)</h3>
-				<%= render(@articles) %>
-			</ul>
-		</ol>
-	<% end %>
+
+<% if @articles.any? && isn_current_user?(@user) %>
+<%= will_paginate @articles,class: "will_page" %>
+
+  <ol class="mic-show">
+		<ul class="user_articles">
+			<h3>Articles (<%= @articles.count %>)</h3>
+			<%= render(@articles) %>
+		</ul>
+	</ol>
+<% end %>
 
 
 

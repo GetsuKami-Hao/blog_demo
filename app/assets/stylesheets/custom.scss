@@ -19,6 +19,15 @@ body {
 }
 /* article index */
 
+.articles-paginate{
+  display: block;
+  margin-left:11px;
+}
+.col-micro{
+  clear: left;
+  margin:30px 0;
+
+}
 .passages-index {
   position: relative;
   background: rgba(255, 255, 255, 0.27);
@@ -111,6 +120,7 @@ body {
 .user_articles{
   margin-left: 14em;
   margin-top: -13em;
+  // background: #fff;
 }
 
 .will_page{
@@ -196,6 +206,10 @@ body {
 
 
 /* articles */
+
+.mic-show{
+  background:#e9eaed;
+}
 
 .microposts {
   background:#fff;
