@@ -37,8 +37,8 @@ class ArticlesController < ApplicationController
 
   def destroy
     if Article.find(params[:id]).destroy
-  	  flash[:success] = 'deleted success.'
-  	  redirect_to articles_url
+      flash[:success] = 'deleted success.'
+      redirect_to articles_url
     end
   end
 
@@ -66,6 +66,6 @@ class ArticlesController < ApplicationController
 
   private
     def article_params
-  	  params.require(:article).permit(:title,:content)
+      params.require(:article).permit(:title,:content)
     end
 end
