@@ -10,8 +10,9 @@ class Article < ApplicationRecord
   has_many :passive_likes, class_name:  "Like",
                            foreign_key: "liked_article_id",
                            dependent:   :destroy
-	has_many :liked_article, through: :passive_likes                           
 
-	# has_many :followers, through: :passive_relationships, source: :follower
+  has_many :liked_article, through: :passive_likes                           
+
+  # has_many :followers, through: :passive_relationships, source: :follower
 
 end
