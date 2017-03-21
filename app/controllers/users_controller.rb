@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   	  redirect_to @user
     else
       flash.now[:danger] = 'signup fail.'
-  	 render 'new'
+  	  render 'new'
     end
   end
 

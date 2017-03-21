@@ -1,18 +1,18 @@
 class ArticlesController < ApplicationController
   before_action :log_in_user
   def new
-  	@article = current_user.articles.build
+    @article = current_user.articles.build
   end
 
   def create
-  	@article = current_user.articles.build(article_params)
-  	if @article.save
-  		flash.now[:success] = '发布成功。'
-  		redirect_to @article
-  	else
+    @article = current_user.articles.build(article_params)
+    if @article.save
+      flash.now[:success] = '发布成功。'
+  	  redirect_to @article
+    else
       flash.now[:danger] = '发布失败。'
-  		render 'new'
-  	end
+  	  render 'new'
+    end
   end
 
   def edit
@@ -30,20 +30,20 @@ class ArticlesController < ApplicationController
   end
 
   def show
-  	@article = Article.find(params[:id])
+    @article = Article.find(params[:id])
     @user = @article.user
     @comments = @article.comments  
   end
 
   def destroy
-  	if Article.find(params[:id]).destroy
-  		flash[:success] = 'deleted success.'
-  		redirect_to articles_url
-  	end
+    if Article.find(params[:id]).destroy
+  	  flash[:success] = 'deleted success.'
+  	  redirect_to articles_url
+    end
   end
 
   def index
-  	@articles = Article.all.paginate(page: params[:page], per_page: 10)
+    @articles = Article.all.paginate(page: params[:page], per_page: 10)
   end
 
   def find_articles
@@ -65,7 +65,7 @@ class ArticlesController < ApplicationController
   end
 
   private
-  	def article_params
-  		params.require(:article).permit(:title,:content)
-  	end
+    def article_params
+  	  params.require(:article).permit(:title,:content)
+    end
 end

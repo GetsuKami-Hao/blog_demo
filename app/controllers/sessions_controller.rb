@@ -1,23 +1,23 @@
 class SessionsController < ApplicationController
-	def new
+  def new
 
-	end
+  end
 
-	def create
-		@user = User.find_by(email: params[:session][:email].downcase)
+  def create
+	  @user = User.find_by(email: params[:session][:email].downcase)
 
-		if @user && @user.authenticate(params[:session][:password])
-			log_in @user
+	  if @user && @user.authenticate(params[:session][:password])
+		  log_in @user
 			
-			redirect_to @user
-		else
-			flash.now[:danger] = '帐号或密码错误'
-			render 'new'
-		end
-	end
+		  redirect_to @user
+	  else
+		  flash.now[:danger] = '帐号或密码错误'
+		  render 'new'
+	  end
+  end
 	
-	def destroy
-		log_out
-		redirect_to login_url
-	end
+  def destroy
+	  log_out
+	  redirect_to login_url
+  end
 end
