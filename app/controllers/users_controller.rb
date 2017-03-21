@@ -16,10 +16,10 @@ class UsersController < ApplicationController
     if @user.save
       flash[:success] = 'signup success.'
       log_in @user
-  	  redirect_to @user
+      redirect_to @user
     else
       flash.now[:danger] = 'signup fail.'
-  	  render 'new'
+      render 'new'
     end
   end
 
@@ -75,7 +75,7 @@ class UsersController < ApplicationController
   private
   	
     def create_user_params 
-  	  params.require(:user).permit(:name,:email,:password,:password_confirmation)
+      params.require(:user).permit(:name,:email,:password,:password_confirmation)
     end
 
     def user_avatar
