@@ -1,26 +1,26 @@
 class UsersController < ApplicationController
   before_action :log_in_user , only: [:update,:edit]
   def show
-  	@user = User.find(params[:id])
+    @user = User.find(params[:id])
     
     @articles = @user.articles.paginate(page: params[:page], per_page: 10)
   end
 
   def new
-  	@user = User.new
+    @user = User.new
   end
 
   def create
-  	@user = User.new(create_user_params)
+    @user = User.new(create_user_params)
 
-  	if @user.save
+    if @user.save
       flash[:success] = 'signup success.'
       log_in @user
-  		redirect_to @user
-  	else
+  	  redirect_to @user
+    else
       flash.now[:danger] = 'signup fail.'
-  		render 'new'
-  	end
+  	 render 'new'
+    end
   end
 
   def edit
@@ -73,11 +73,12 @@ class UsersController < ApplicationController
   end 
 
   private
-  	def create_user_params 
-  		params.require(:user).permit(:name,:email,:password,:password_confirmation)
-  	end
+  	
+    def create_user_params 
+  	  params.require(:user).permit(:name,:email,:password,:password_confirmation)
+    end
 
     def user_avatar
       params.require(:user).permit(:name, :avatar)
     end
-end
+  end
