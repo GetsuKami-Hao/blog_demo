@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
     
     @articles = @user.articles.paginate(page: params[:page], per_page: 10)
-    
   end
 
   def new
@@ -22,7 +21,6 @@ class UsersController < ApplicationController
       flash.now[:danger] = 'signup fail.'
   		render 'new'
   	end
- 
   end
 
   def edit
@@ -72,7 +70,7 @@ class UsersController < ApplicationController
     @users = User.where("name like ?" , "%#{str}%").paginate(
                                               page: params[:page], per_page: 10)
       
-  end
+  end 
 
   private
   	def create_user_params 

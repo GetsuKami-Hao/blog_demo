@@ -14,9 +14,9 @@ class CommentsController < ApplicationController
 			flash[:success] = 'add comment success.'
 			redirect_to @article
 		else
-      flash[:danger] = 'add comment fail.'
-  		render 'new'
-  	end
+ 	    flash[:danger] = 'add comment fail.'
+ 			render 'new'
+ 		end
 	end
 
 	def destroy
