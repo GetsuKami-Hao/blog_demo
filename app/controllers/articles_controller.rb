@@ -8,10 +8,10 @@ class ArticlesController < ApplicationController
     @article = current_user.articles.build(article_params)
     if @article.save
       flash.now[:success] = '发布成功。'
-  	  redirect_to @article
+      redirect_to @article
     else
       flash.now[:danger] = '发布失败。'
-  	  render 'new'
+      render 'new'
     end
   end
 
