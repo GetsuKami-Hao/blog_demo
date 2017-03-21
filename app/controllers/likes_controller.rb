@@ -5,12 +5,12 @@ class LikesController < ApplicationController
     article = Article.find(params[:article_id])
     current_user.like_article(article)
     redirect_to article
-	end
+  end
 
-	def destroy
-		article = Like.find(params[:id]).liked_article
+  def destroy	
+    article = Like.find(params[:id]).liked_article
     current_user.unlike_article	(article)
-    
+
     redirect_to article
-	end
+  end
 end
