@@ -1,5 +1,5 @@
 <div class="user_setting">
-	<p class="glyphicon glyphicon-send" data-toggle="dropdown">  设置</p>
+  <p class="glyphicon glyphicon-send" data-toggle="dropdown"> 设置</p>
 </div>
 
 <div class="container">
@@ -8,24 +8,24 @@
       <li>
         <input type="radio" name="self-tabs" id="basic-setting" checked/>
         <label for="basic-setting">基础设置</label>
-					<div id="basic-content">
-						
-						<%= image_tag @user.avatar.url(:thumb), class: "img-circle"%>
-						<%= form_for(@user,url: update_path, html: { multipart: true }) do |form| %>
-							<%= form.file_field :avatar ,placeholder: "上传头像", class: "update_photo" %>
-							<%= form.label "邮箱" ,class: "basic_email" %>
-								<!-- <fieldset disabled> -->
-									<%= form.email_field :email, id: "disabledEmailInput" ,class: "form-control basic-user-input",disabled:"disabled" %>
-								<!-- </fieldset> -->
-							<%= form.label "昵称" %>
-							<%= form.text_field :name , class: "form-control basic-user-input" %>
-							<%= form.submit "确定", class: "btn btn-default basic-input-btn" %>
-						<% end %>
-          </div>
+        <div id="basic-content">
+
+          <%= image_tag @user.avatar.url(:thumb), class: "img-circle" %>
+          <%= form_for(@user, url: update_path, html: {multipart: true}) do |form| %>
+            <%= form.file_field :avatar, placeholder: "上传头像", class: "update_photo" %>
+            <%= form.label "邮箱", class: "basic_email" %>
+            <!-- <fieldset disabled> -->
+            <%= form.email_field :email, id: "disabledEmailInput", class: "form-control basic-user-input", disabled: "disabled" %>
+            <!-- </fieldset> -->
+            <%= form.label "昵称" %>
+            <%= form.text_field :name, class: "form-control basic-user-input" %>
+            <%= form.submit "确定", class: "btn btn-default basic-input-btn" %>
+          <% end %>
+        </div>
       </li>
-      
+
       <li>
-        <input type="radio" name="self-tabs" id="self-data-setting" />
+        <input type="radio" name="self-tabs" id="self-data-setting"/>
         <label for="self-data-setting">个人资料</label>
         <div id="self-data-content">
           <form>
@@ -35,7 +35,7 @@
               <span>男</span>
               <input id="self-data-sex-female" type="radio" value="female" name="sex"/>
               <span>女</span>
-              <input id="self-data-sex-secret" type="radio" value="secret"  name="sex"/>
+              <input id="self-data-sex-secret" type="radio" value="secret" name="sex"/>
               <span>秘密</span>
             </div>
             <div>
@@ -50,53 +50,53 @@
           </form>
         </div>
       </li>
-           
+
       <li>
-        <input type="radio" name="self-tabs" id="social-intercourse-setting" />
+        <input type="radio" name="self-tabs" id="social-intercourse-setting"/>
         <label for="social-intercourse-setting">社交账号</label>
         <div id="social-intercourse-content">
-        	<form>
-          	<div>
-            	<label for="social-microblog"><b>微博</b></label>
+          <form>
+            <div>
+              <label for="social-microblog"><b>微博</b></label>
               <input id="social-microblog" type="text">
             </div>
             <div>
-            	<label for="social-wechat"><b>微信</b></label>
+              <label for="social-wechat"><b>微信</b></label>
               <input id="social-wechat" type="text">
             </div>
-           	<div>
-             	<label for="social-qq"><b> Q Q </b></label>
+            <div>
+              <label for="social-qq"><b> Q Q </b></label>
               <input id="social-qq" type="text">
             </div>
             <div>
-            	<label for="social-bean"><b>豆瓣</b></label>
+              <label for="social-bean"><b>豆瓣</b></label>
               <input id="social-bean" type="text">
             </div>
             <button type="submit">确认修改</button>
           </form>
         </div>
       </li>
-      
+
       <li>
         <input type="radio" name="self-tabs" id="account-management-setting"/>
         <label for="account-management-setting">账号管理</label>
         <div id="account-management-content">
-        	<div>
-          	<label><b>打包下载文章</b></label>
-          	<button type="button">下载所有文章</button>
+          <div>
+            <label><b>打包下载文章</b></label>
+            <button type="button">下载所有文章</button>
           </div>
           <div>
-          	<label><b>删除账号</b></label>
+            <label><b>删除账号</b></label>
             <button type="button" onclick="confirm('确认删除？')">删除账号</button>
           </div>
         </div>
       </li>
-        
+
       <li>
         <input type="radio" name="self-tabs" id="other-setting"/>
         <label for="other-setting">其他</label>
         <div id="other-content">
-             我也不知道放什么了T-T
+          我也不知道放什么了T-T
         </div>
       </li>
     </ul>

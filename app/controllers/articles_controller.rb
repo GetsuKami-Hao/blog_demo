@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :log_in_user
+
   def new
     @article = current_user.articles.build
   end
@@ -30,9 +31,9 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
-    @user = @article.user
-    @comments = @article.comments  
+    @article  = Article.find(params[:id])
+    @user     = @article.user
+    @comments = @article.comments
   end
 
   def destroy
@@ -58,14 +59,14 @@ class ArticlesController < ApplicationController
   end
 
   def show_find_articles
-    str = get_search_str
-    @articles = Article.where("title like ?" , "%#{str}%").paginate(
-                                              page: params[:page], per_page: 10)
-      
+    str       = get_search_str
+    @articles = Article.where("title like ?", "%#{str}%").paginate(
+      page: params[:page], per_page: 10)
+
   end
 
   private
-    def article_params
-      params.require(:article).permit(:title,:content)
-    end
+  def article_params
+    params.require(:article).permit(:title, :content)
+  end
 end

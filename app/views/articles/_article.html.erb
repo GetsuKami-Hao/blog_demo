@@ -1,26 +1,25 @@
-
 <div class="passages-index">
 
   <div class="passage-index">
-  	<div>
-  		<div class="passage-index-header">
-        <%= link_to (image_tag article.user.avatar.url(:thumb) ,class: "img-circle") ,user_path(article.user) %>
-       	<p>
-          <b><%= link_to article.user.name,article.user %></b>
+    <div>
+      <div class="passage-index-header">
+        <%= link_to (image_tag article.user.avatar.url(:thumb), class: "img-circle"), user_path(article.user) %>
+        <p>
+          <b><%= link_to article.user.name, article.user %></b>
           <span><%= article.created_at.localtime.strftime("%Y-%m-%d") %></span>
         </p>
       </div>
-      
+
       <div class="passage-index-body">
         <a href="<%= article_path(article) %>"><h2 class="passage-title"><%= article.title %></h2></a>
       </div>
-      
+
       <div class="passage-index-footer">
         <span>回复<%= article.comments.count %></span>
         <span>喜欢<%= article.liked_article.count %></span>
       </div>
-  	</div>
-	</div>
+    </div>
+  </div>
 
 
 </div>

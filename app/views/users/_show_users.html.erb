@@ -1,11 +1,11 @@
 <%= will_paginate %>
 <div class="find_users">
-	<ol class="microposts">
-		<% if @users.any? %>
-			<%= render(@users) %>
-			<!--　使用的是view/users/_user.html.erb -->
-		<% else %>
-			<h1>users are existn't</h1>
-		<% end %>
-	</ol>
+  <ol class="microposts">
+    <% if @users.any? %>
+      <%= render(@users) %>
+      <!--　使用的是view/users/_user.html.erb -->
+    <% else %>
+      <h1>users are existn't</h1>
+    <% end %>
+  </ol>
 </div>

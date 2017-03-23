@@ -1,16 +1,16 @@
 <% if current_user %>
-	<% if  current_user.like_article?(@article) %>
-		<%= link_to '', current_user.active_likes.where(
-		"liker_id =  #{current_user.id} and liked_article_id = #{@article.id} ").first, 
-										controller: 'likes', action: 'destroy', method: :delete, 
-										remote: true,	class: "glyphicon glyphicon-heart" ,
-										id: "unlike_article" %>
+  <% if current_user.like_article?(@article) %>
+    <%= link_to '', current_user.active_likes.where(
+        "liker_id =  #{current_user.id} and liked_article_id = #{@article.id} ").first,
+                controller: 'likes', action: 'destroy', method: :delete,
+                remote:     true, class: "glyphicon glyphicon-heart",
+                id:         "unlike_article" %>
 
-	<% else %>
+  <% else %>
 
-		<%= link_to '',likes_path(article_id:  @article.id) ,controller: 'likes', 
-												action: 'create', method: :post, remote: true,
-												class: "glyphicon glyphicon-heart" ,
-												id: "like_article" %>
-	<% end %>
+    <%= link_to '', likes_path(article_id: @article.id), controller: 'likes',
+                action:                                              'create', method: :post, remote: true,
+                class:                                               "glyphicon glyphicon-heart",
+                id:                                                  "like_article" %>
+  <% end %>
 <% end %>

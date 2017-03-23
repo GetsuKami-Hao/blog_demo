@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale = 1">
-    <title><%= full_title(yield(:title)) %></title>
-    <%= render 'layouts/default' %>
-  </head>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale = 1">
+  <title><%= full_title(yield(:title)) %></title>
+  <%= render 'layouts/default' %>
+</head>
 
-  <body>
-  	<header><%= render 'layouts/header' %></header>
-    <div class="container">
-      <% flash.each do |message_type, message| %>
-        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-      <% end %>
-      <%= yield %>
-		</div>
-    <footer><%= render 'layouts/footer' %></footer>
-  </body>
+<body>
+<header><%= render 'layouts/header' %></header>
+<div class="container">
+  <% flash.each do |message_type, message| %>
+    <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+  <% end %>
+  <%= yield %>
+</div>
+<footer><%= render 'layouts/footer' %></footer>
+</body>
 </html>

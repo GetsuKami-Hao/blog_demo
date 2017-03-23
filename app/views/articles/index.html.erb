@@ -1,14 +1,14 @@
-<% provide(:title, 'All articles') %>                                                                                                                
+<% provide(:title, 'All articles') %>
 
 
-<%= will_paginate @articles,class: "articles-paginate" %>
+<%= will_paginate @articles, class: "articles-paginate" %>
 
 <div class="col-md-8 col-micro">
   <% if @articles.any? %>
     <ol class="microposts">
       <ul class="articles">
-				<%= render(@articles) %>
-			<ul>
+        <%= render(@articles) %>
+        <ul>
     </ol>
   <% end %>
 </div>

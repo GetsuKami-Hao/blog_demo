@@ -1,61 +1,61 @@
 <% provide(:title, @article.title) %>
 <div class="main" id="page-top">
   <div class="passage-content">
-   <div class="passage">
+    <div class="passage">
       <a name="top"></a>
       <div class="passage-header">
         <h1><%= @article.title %></h1>
         <div class="passage-info">
-          <%= link_to @user.name,@user %><span>·发布于<%= @article.created_at.localtime.strftime("%Y-%m-%d") %></span>
-          <%  if @comments.any? %>
+          <%= link_to @user.name, @user %><span>·发布于<%= @article.created_at.localtime.strftime("%Y-%m-%d") %></span>
+          <% if @comments.any? %>
             <span>·最后由</span><%= link_to @comments.last.user.name, @comments.last.user %></a>
             <span>回复于<%= @comments.last.created_at.localtime.strftime("%Y-%m-%d") %></span>
           <% end %>
           <span>·x次阅读</span>
         </div>
-        
+
         <div class="author-picture">
-          <%= link_to (image_tag @user.avatar.url(:thumb) ,class: "img-circle") ,user_path(@user) %>
+          <%= link_to (image_tag @user.avatar.url(:thumb), class: "img-circle"), user_path(@user) %>
         </div>
       </div>
-      
+
       <div class="passage-body">
         <article><%= @article.content %></article>
       </div>
-            
+
       <div class="passage-footer">
         <i></i>
         <span> <b><%= @article.liked_article.count %></b> 个赞</span>
         <% unless isn_current_user?(@user) %>
-          <%= link_to '', edit_article_path(@article), method: :get , class: "glyphicon glyphicon-pencil update-font" %>
-          <%= link_to '', @article , method: :delete, 
-                    data: { confirm: "You sure?" }, 
-                    class: "glyphicon glyphicon-trash delete-font" %>
+          <%= link_to '', edit_article_path(@article), method: :get, class: "glyphicon glyphicon-pencil update-font" %>
+          <%= link_to '', @article, method: :delete,
+                      data:                 {confirm: "You sure?"},
+                      class:                "glyphicon glyphicon-trash delete-font" %>
         <% end %>
       </div>
     </div>
-  <% if @comments.any? %>  
-    <div class="messages">
-      <div class="message-header">
-        <span>共收到 <b><%= @comments.count %></b> 条回复</span>
+    <% if @comments.any? %>
+      <div class="messages">
+        <div class="message-header">
+          <span>共收到 <b><%= @comments.count %></b> 条回复</span>
+        </div>
+        <%= render @comments %>
       </div>
-      <%= render @comments %>
-    </div>
-  <% end %> 
+    <% end %>
 
-  <% if logged_in?  %>
-    <div class="message-input">
-      <p>回帖</p>
-      <%= form_for(@comment = current_user.comments.build, url: comments_path)do |form| %>
-        <%= hidden_field_tag :article_id, @article.id %>
-        <%= form.text_area :content , class: "message-text" %>
-        <%= form.submit "提交回复",class: "message-submit" %>
-      <% end %>
-    </div>
-  <% else %>
-    <%= link_to '登陆', login_path %>
-  <% end %>
- </div>
+    <% if logged_in? %>
+      <div class="message-input">
+        <p>回帖</p>
+        <%= form_for(@comment = current_user.comments.build, url: comments_path) do |form| %>
+          <%= hidden_field_tag :article_id, @article.id %>
+          <%= form.text_area :content, class: "message-text" %>
+          <%= form.submit "提交回复", class: "message-submit" %>
+        <% end %>
+      </div>
+    <% else %>
+      <%= link_to '登陆', login_path %>
+    <% end %>
+  </div>
 
   <div class="passage-state">
     <a href="#page-top" class="page-up"><i></i></a>
@@ -70,10 +70,10 @@
     <hr color="#eee"/>
     <div class="passage-reply">
       <div>共收到 <b><%= @comments.count %></b> 条回复</div>
-        <a href="#">参与回复</a>
-      </div>
-      <a href="#page-bottom" class="page-down"><i></i></a>
+      <a href="#">参与回复</a>
     </div>
+    <a href="#page-bottom" class="page-down"><i></i></a>
+  </div>
 </div>
 <div id="page-bottom"></div>
 
