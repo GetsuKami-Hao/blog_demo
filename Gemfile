@@ -35,7 +35,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 
-gem 'bootstrap-sass' , '~> 3.3.7'
+gem 'bootstrap-sass', '~> 3.3.7'
 gem "paperclip", "~> 5.1.0"
 
 gem 'rails-controller-testing'
@@ -46,8 +46,8 @@ gem 'rails-controller-testing'
 
 group :production do
 
-  gem 'pg' , '0.19.0'
-  
+  gem 'pg', '0.19.0'
+
 end
 
 group :development, :test do

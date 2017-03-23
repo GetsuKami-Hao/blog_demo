@@ -1,29 +1,29 @@
 <% provide(:title, @user.name) %>
 
 <% unless isn_current_user?(@user) %>
-	<%= render 'setting_user' %>
+  <%= render 'setting_user' %>
 <% else %>
-	<section class="show_other_user">
-		<%= render 'user_info' %>
-	</section>
-<% end %>	
+  <section class="show_other_user">
+    <%= render 'user_info' %>
+  </section>
+<% end %>
 
 <section class="stats">
-	<%= render 'shared/stats' %>
+  <%= render 'shared/stats' %>
 </section>
 
-	<div><%= render 'follow' %></div>
-  
+<div><%= render 'follow' %></div>
+
 
 <% if @articles.any? && isn_current_user?(@user) %>
-<%= will_paginate @articles,class: "will_page" %>
+  <%= will_paginate @articles, class: "will_page" %>
 
   <ol class="mic-show">
-		<ul class="user_articles">
-			<h3>Articles (<%= @articles.count %>)</h3>
-			<%= render(@articles) %>
-		</ul>
-	</ol>
+    <ul class="user_articles">
+      <h3>Articles (<%= @articles.count %>)</h3>
+      <%= render(@articles) %>
+    </ul>
+  </ol>
 <% end %>
 
 

@@ -5,7 +5,7 @@ class Relationship < ApplicationRecord
 
   validates :follower_id, presence: true
   validates :followed_id, presence: true
-  
+
   def following_users(followeds)
     followeds.map { |id| User.find(id) }
   end

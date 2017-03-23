@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
-  before_action :log_in_user , only: [:update,:edit]
+  before_action :log_in_user, only: [:update, :edit]
+
   def show
     @user = User.find(params[:id])
-    
+
     @articles = @user.articles.paginate(page: params[:page], per_page: 10)
   end
 
@@ -37,19 +38,19 @@ class UsersController < ApplicationController
   end
 
   def articles
-    @user = User.find(params[:id])
+    @user     = User.find(params[:id])
     @articles = @user.articles.paginate(page: params[:page], per_page: 10)
     render 'show_articles'
   end
 
   def following
-    @user = User.find(params[:id])
+    @user  = User.find(params[:id])
     @users = @user.following.paginate(page: params[:page])
     render 'show_following'
   end
 
   def followers
-    @user = User.find(params[:id])
+    @user  = User.find(params[:id])
     @users = @user.followers.paginate(page: params[:page])
     render 'show_followers'
   end
@@ -66,19 +67,19 @@ class UsersController < ApplicationController
   end
 
   def show_find_users
-    str = get_search_str
-    @users = User.where("name like ?" , "%#{str}%").paginate(
-                                              page: params[:page], per_page: 10)
-      
-  end 
+    str    = get_search_str
+    @users = User.where("name like ?", "%#{str}%").paginate(
+      page: params[:page], per_page: 10)
+
+  end
 
   private
-  	
-    def create_user_params 
-      params.require(:user).permit(:name,:email,:password,:password_confirmation)
-    end
 
-    def user_avatar
-      params.require(:user).permit(:name, :avatar)
-    end
+  def create_user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
+
+  def user_avatar
+    params.require(:user).permit(:name, :avatar)
+  end
+end
