@@ -74,11 +74,11 @@ class UsersController < ApplicationController
 
   private
   	
-    def create_user_params 
-      params.require(:user).permit(:name,:email,:password,:password_confirmation)
-    end
-
-    def user_avatar
-      params.require(:user).permit(:name, :avatar)
-    end
+  def create_user_params 
+    params.require(:user).permit(:name,:email,:password,:password_confirmation)
   end
+
+  def user_avatar
+    params.require(:user).permit(:name, :avatar)
+  end
+end

@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :log_in_user
-  
+
   def new
     @article = current_user.articles.build
   end
@@ -66,7 +66,8 @@ class ArticlesController < ApplicationController
   end
 
   private
-    def article_params
-      params.require(:article).permit(:title,:content)
-    end
+  
+  def article_params
+    params.require(:article).permit(:title,:content)
+  end
 end
