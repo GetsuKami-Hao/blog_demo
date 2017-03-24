@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :log_in_user
+  
   def new
     @article = current_user.articles.build
   end

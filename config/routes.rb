@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'articles/show'
 
-	root 'articles#index'
+  root 'articles#index'
 
   get 'users/show'
 
