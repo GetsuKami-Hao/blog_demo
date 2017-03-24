@@ -1,5 +1,5 @@
 <div class="user_setting">
-	<p class="glyphicon glyphicon-send" data-toggle="dropdown">  设置</p>
+  <p class="glyphicon glyphicon-send" data-toggle="dropdown">  设置</p>
 </div>
 
 <div class="container">
@@ -8,20 +8,18 @@
       <li>
         <input type="radio" name="self-tabs" id="basic-setting" checked/>
         <label for="basic-setting">基础设置</label>
-					<div id="basic-content">
-						
-						<%= image_tag @user.avatar.url(:thumb), class: "img-circle"%>
-						<%= form_for(@user,url: update_path, html: { multipart: true }) do |form| %>
-							<%= form.file_field :avatar ,placeholder: "上传头像", class: "update_photo" %>
-							<%= form.label "邮箱" ,class: "basic_email" %>
-								<!-- <fieldset disabled> -->
-									<%= form.email_field :email, id: "disabledEmailInput" ,class: "form-control basic-user-input",disabled:"disabled" %>
+        <div id="basic-content">
+          <%= image_tag @user.avatar.url(:thumb), class: "img-circle"%>
+            <%= form_for(@user,url: update_path, html: { multipart: true }) do |form| %>
+            <%= form.file_field :avatar ,placeholder: "上传头像", class: "update_photo" %>
+            <%= form.label "邮箱" ,class: "basic_email" %>
+            <%= form.email_field :email, id: "disabledEmailInput" ,class: "form-control basic-user-input",disabled:"disabled" %>
 								<!-- </fieldset> -->
-							<%= form.label "昵称" %>
-							<%= form.text_field :name , class: "form-control basic-user-input" %>
-							<%= form.submit "确定", class: "btn btn-default basic-input-btn" %>
-						<% end %>
-          </div>
+            <%= form.label "昵称" %>
+            <%= form.text_field :name , class: "form-control basic-user-input" %>
+            <%= form.submit "确定", class: "btn btn-default basic-input-btn" %>
+          <% end %>
+        </div>
       </li>
       
       <li>
@@ -81,12 +79,12 @@
         <input type="radio" name="self-tabs" id="account-management-setting"/>
         <label for="account-management-setting">账号管理</label>
         <div id="account-management-content">
-        	<div>
-          	<label><b>打包下载文章</b></label>
-          	<button type="button">下载所有文章</button>
+          <div>
+            <label><b>打包下载文章</b></label>
+            <button type="button">下载所有文章</button>
           </div>
           <div>
-          	<label><b>删除账号</b></label>
+            <label><b>删除账号</b></label>
             <button type="button" onclick="confirm('确认删除？')">删除账号</button>
           </div>
         </div>

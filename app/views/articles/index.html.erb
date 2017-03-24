@@ -1,5 +1,4 @@
-<% provide(:title, 'All articles') %>                                                                                                                
-
+<% provide(:title, 'All articles') %>                                            
 
 <%= will_paginate @articles,class: "articles-paginate" %>
 
@@ -7,11 +6,8 @@
   <% if @articles.any? %>
     <ol class="microposts">
       <ul class="articles">
-				<%= render(@articles) %>
-			<ul>
+        <%= render(@articles) %>
+      <ul>
     </ol>
   <% end %>
 </div>
-
-
-
